@@ -1,0 +1,2 @@
+class PubScoresController < ApplicationController
+end
