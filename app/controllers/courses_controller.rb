@@ -6,10 +6,12 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @pubs = @course.pubs
   end
 
   private
 
   def course_params
     params.require(:course).permit(course_ids: [])
+  end
 end
