@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :games, only: [:new, :create]
   end
 
+  resources :games, only: [:show]
+
 end
