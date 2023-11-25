@@ -1,0 +1,110 @@
+.card-product {
+  overflow: hidden;
+  height: 180px;
+  width: 100%;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  border-radius: 8px;
+  a {
+    font-size: 32px;
+    text-decoration: none;
+    color: green;
+  }
+}
+.card-product-booking {
+  overflow: hidden;
+  height: 200px;
+  width: 100%;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  border-radius: 8px;
+
+}
+.card-product-create{
+  overflow: hidden;
+  height: 430px;
+  width: 460px;
+  background: rgb(195, 240, 160);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  justify-content: center;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+// .card-product-create-small{
+//   overflow: hidden;
+//   height: 600px;
+//   width: 400px;
+//   background: rgb(141, 232, 85);
+
+// }
+// .card-product-booking{
+//   overflow-y: auto;
+//   // overflow: hidden;
+//   height: 430px;
+//   width: 500px;
+//   background: rgb(181, 24, 24);
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   display: flex;
+//   align-items: center;
+//   margin-bottom: 8px;
+//   justify-content: center;
+//   border-radius: 8px;
+// }
+.card-product-container{
+  overflow: hidden;
+  height: 430px;
+  width: 430px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  justify-content: center;
+  border-radius: 8px;
+}
+.card-container{
+  flex: 1;
+  overflow-y: auto;
+  height: 100vh;
+  // background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  margin-bottom: 8px;
+  justify-content: center;
+  background: rgb(238, 245, 215);
+  border-radius: 8px;
+}
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+.card-product h2 {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+}
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+.card-product .card-product-infos {
+  padding: 56px;
+  width: 240px;
+}
+.mega-margin{
+  margin-top: 220px;
+}

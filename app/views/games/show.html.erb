@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h1>Game Details</h1>
+  <p>Course: <%= @game.course.name %></p>
+  <p>Date and Time: <%= @game.date_time %></p>
+
+  <h2>Participants</h2>
+  <ul>
+    <% @participants.each do |participant| %>
+      <li>
+        <%= participant.user.email %>:
+        <% if participant.status == 'accepted' %>
+          Accepted
+        <% elsif participant.status == 'declined' %>
+          Declined
+        <% else %>
+          No Response
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
