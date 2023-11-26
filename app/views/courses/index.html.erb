@@ -1,7 +1,37 @@
-<h1>courses#index</h1>
-<h2>Detailed pub suggestions</h2>
-<%@courses.each do |course| %>
-<p><%= course.name%></p>
-<p><%= course.location%></p>
-<p><%= course.number_of_pubs%></p>
-<% end %>
+
+ <div class="container-parent">
+ <div class="container">
+   <h2 > Welcome to Par-tee, the Pub golf drinking game!</h2>
+      <h3 > Courses Available  </h3>
+          <%@courses.each do |course| %>
+    <div class="card-pub">
+          <h4>Course:  </h4> <p><%=course.name%></p>
+          <p>Location: <%=course.location%></p>
+          <p>Number of holes: <%= course.number_of_pubs%></p>
+      <!--  <div class="container-map"
+          data-controller="map"
+          data-map-markers-value="<%#= @courses.to_json %>"
+          data-map-api-key-value="<%#= ENV['MAPBOX_API_KEY'] %>">
+        </div>-->
+    </div>
+          <% end %>
+</div>
+</div>
+
+
+
+
+<!--<div class="container-large">
+  <br>-->
+    <%#= form_with url: dogs_path, method: :get, class: "d-flex" do %>-->
+<!--        <div class="input-group">-->
+            <%#= text_field_tag :query,
+                params[:query],
+                class: "form-control rounded-search-bar",
+                placeholder: "Find a Pup" %>
+<!--            <div class="input-group-append">-->
+                <%#= submit_tag "Woof !", name: "", class: "btn btn-secondary-shape" %>
+
+<!--        </div>
+    </div><%# end %>
+</div>
