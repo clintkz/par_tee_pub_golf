@@ -1,25 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700|Roboto:400,700&display=swap" rel="stylesheet">
 
- <div class="container-parent">
- <div class="container">
-   <h2 > Welcome to Par-tee, the Pub golf drinking game!</h2>
-      <h3 > Courses Available  </h3>
-          <%@courses.each do |course| %>
-    <div class="card-pub">
-          <h4>Course:  </h4> <p><%=course.name%></p>
-          <p>Location: <%=course.location%></p>
-          <p>Number of holes: <%= course.number_of_pubs%></p>
+  <style>
+    h1, h2, h3, h4, h5, h6, p {
+      font-family:  "Courier New";
+    }
+  </style>
+</head>
+
+<div class="container-parent">
+  <%= image_tag("logo_page.png", alt: "Course Image", style: "width: 300px; height: auto;") %>
+  <div class="container">
+    <div class="card-heading">
+      <h4>Welcome to Par-tee, the Pub golf drinking game! Choose from the courses below:</h4>
+    </div>
+
+    <% @courses.each do |course| %>
+      <div class="card-pub">
+        <h5>Course:</h5> <p><%= course.name %></p>
+        <h5>Location:</h5><p><%= course.location %></p>
+        <h5>Number of holes:</h5><p><%= course.number_of_pubs %></p>
+        <div class="container-map"
+             data-controller="map"
+             data-map-markers-value="<%= @courses.to_json %>"
+             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          <p>place map here</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
       <!--  <div class="container-map"
           data-controller="map"
           data-map-markers-value="<%#= @courses.to_json %>"
           data-map-api-key-value="<%#= ENV['MAPBOX_API_KEY'] %>">
         </div>-->
-    </div>
-          <% end %>
-</div>
-</div>
-
-
-
 
 <!--<div class="container-large">
   <br>-->

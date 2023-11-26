@@ -1,8 +1,28 @@
 .card-pub {
   // display: flex;
+  background: rgb(244, 243, 243);
+  color: rgb(40, 5, 128);
+  margin-bottom: 10px;
+  border-radius: 4px;
+  padding: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-map {
+  // display: flex;
   background: white;
   color: rgb(40, 5, 128);
   margin-bottom: 10px;
   border-radius: 4px;
   padding: 4px;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-heading {
+  // display: flex;
+  height: 50px;
+  background: rgb(244, 243, 243);
+  color: rgb(40, 5, 128);
+  margin-bottom: 10px;
+  border-radius: 4px;
+  padding: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
