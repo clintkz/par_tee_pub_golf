@@ -15,7 +15,7 @@
 </head>
 
 <div class="container-parent">
-  <%= image_tag("logo_page.png", alt: "Course Image", style: "width: 300px; height: auto;") %>
+  <%= image_tag("logo_page.png", alt: "Course Image", style: "width: 200px; height: auto;") %>
   <div class="container">
     <div class="card-heading">
       <h4>Welcome to Par-tee, the Pub golf drinking game! Choose from the courses below:</h4>
@@ -23,9 +23,7 @@
 
     <% @courses.each do |course| %>
       <div class="card-pub">
-        <h5>Course:</h5> <p><%= course.name %></p>
-        <h5>Location:</h5><p><%= course.location %></p>
-        <h5>Number of holes:</h5><p><%= course.number_of_pubs %></p>
+        <p><%= course.name %> is in <%= course.location %> and has <%= course.number_of_pubs %> holes.  Happy drinking!</p>
         <div class="container-map"
              data-controller="map"
              data-map-markers-value="<%= @courses.to_json %>"
