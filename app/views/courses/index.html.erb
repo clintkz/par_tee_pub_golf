@@ -9,50 +9,28 @@
 
   <style>
     h1, h2, h3, h4, h5, h6, p {
-      font-family:  "Courier New";
+      font-family:  "Trebuchet MS";
     }
   </style>
 </head>
 
 <div class="container-parent">
-  <%= image_tag("logo_page.png", alt: "Course Image", style: "width: 200px; height: auto;") %>
+  <%= image_tag("logo_page.png", alt: "Par-tee Image", style: "width: 200px; height: auto;") %>
   <div class="container">
     <div class="card-heading">
-      <h4>Welcome to Par-tee, the Pub golf drinking game! Choose from the courses below:</h4>
+      <h5>Welcome to Par-tee, the Pub golf drinking game! Choose from the courses below:</h5>
     </div>
 
     <% @courses.each do |course| %>
       <div class="card-pub">
         <p><%= course.name %> is in <%= course.location %> and has <%= course.number_of_pubs %> holes.  Happy drinking!</p>
-        <div class="container-map"
+        <!--<div class="container-map"
              data-controller="map"
-             data-map-markers-value="<%= @courses.to_json %>"
-             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+             data-map-markers-value="<%#= @courses.to_json %>"
+             data-map-api-key-value="<%#= ENV['MAPBOX_API_KEY'] %>">
           <p>place map here</p>
-        </div>
+        </div>-->
       </div>
     <% end %>
   </div>
-</div>
-
-
-      <!--  <div class="container-map"
-          data-controller="map"
-          data-map-markers-value="<%#= @courses.to_json %>"
-          data-map-api-key-value="<%#= ENV['MAPBOX_API_KEY'] %>">
-        </div>-->
-
-<!--<div class="container-large">
-  <br>-->
-    <%#= form_with url: dogs_path, method: :get, class: "d-flex" do %>-->
-<!--        <div class="input-group">-->
-            <%#= text_field_tag :query,
-                params[:query],
-                class: "form-control rounded-search-bar",
-                placeholder: "Find a Pup" %>
-<!--            <div class="input-group-append">-->
-                <%#= submit_tag "Woof !", name: "", class: "btn btn-secondary-shape" %>
-
-<!--        </div>
-    </div><%# end %>
 </div>
