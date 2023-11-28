@@ -9,6 +9,8 @@ class GamesController < ApplicationController
     @course = Course.find(params[:course_id])
     @game = Game.new(game_params)
     @game.course = @course
+    @game.user_id = current_user.id
+
     if @game.save
       # Add participants to the game
       # params[:game][:user_ids].each do |user_id|
@@ -24,6 +26,14 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @participants = @game.participants.includes(:user)
+  end
+
+  def index
+    @created_games = Game.where(user_id: current_user.id) # Games the user has created
+    @invited_games = Game.joins(:participants).where(participants: { user_id: current_user.id }) # Games the user is invited to
+
+    # Ensure there are no duplicates between created and invited games
+    @invited_games = @invited_games.where.not(user_id: current_user.id)
   end
 
   private

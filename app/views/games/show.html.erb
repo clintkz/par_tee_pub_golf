@@ -7,13 +7,17 @@
   <ul>
     <% @participants.each do |participant| %>
       <li>
-        <%= participant.user.email %>:
-        <% if participant.status == 'accepted' %>
+        <%= participant.user.email %>
+        <% if @game.user_id == participant.user_id %>
+          Organizer
+        <% elsif participant.status == 'accepted' %>
           Accepted
         <% elsif participant.status == 'declined' %>
           Declined
         <% else %>
           No Response
+          <%= button_to 'Accept', accept_game_participant_path(@game, participant), method: :patch, class: 'btn btn-success' %>
+          <%= button_to 'Decline', decline_game_participant_path(@game, participant), method: :patch, class: 'btn btn-danger' %>
         <% end %>
       </li>
     <% end %>
