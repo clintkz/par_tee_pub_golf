@@ -1,44 +1,28 @@
 .container-parent {
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  height: 100vh;
-  padding: 2px 16px;
-  border-radius: 8px;
-  }
-.container {
-width: 700px;
-height: 500px;
-margin: 0 auto;
-border-radius: 8px;
-/* height: 0 auto; */
+  // width: 310px;
+// height: 900px;
+// margin: 0 auto;
+margin-left: 20px;
+border-radius: 3px;
+// display: flex;
 // padding: 2px 16px;
-// display: grid
+background-color: white;
+color: navy;
 }
 
-.container-large {
-width: 950px;
-margin: 0 auto;
-// display: flex;
-/* height: 0 auto; */
-padding: 2px 16px;
-// display: grid
-text-align: left;
-border-radius: 8px;
-}
 
 .container-large .left-aligned-text {
 text-align: left;
 }
 
-.container-map {
-flex: 1;
-position: sticky;
-top: 0;
-height: 100vh;
-border-radius: 8px;
+//.container-map {
+//flex: 1;
+//position: sticky;
+//top: 0;
+//height: 100vh;
+//border-radius: 8px;
 // margin: 0 auto;
-}
+//}
 
 .container-courses {
   max-width: 800px;
@@ -54,3 +38,12 @@ border-radius: 8px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
+
+  .container-map {
+    width: 290px;
+  // flex: 1;
+  // position: sticky;
+
+  border-radius: 3px;
+  }
+
