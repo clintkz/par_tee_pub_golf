@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
- 
+
   resources :courses,  only: [:show]
 
   root to: "courses#index"
@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     resources :games, only: [:new, :create]
   end
 
-  resources :games, only: [:show]
+  resources :games do
+    resources :participants, only: [:show]
+  end
+  # resources :games, only: [:show]
 
 end
