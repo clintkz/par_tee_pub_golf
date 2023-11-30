@@ -1,5 +1,5 @@
 .container-parent {
-  // width: 310px;
+width: 600px;
 // height: 900px;
 // margin: 0 auto;
 margin-left: 20px;
@@ -15,14 +15,6 @@ color: navy;
 text-align: left;
 }
 
-//.container-map {
-//flex: 1;
-//position: sticky;
-//top: 0;
-//height: 100vh;
-//border-radius: 8px;
-// margin: 0 auto;
-//}
 
 .container-courses {
   max-width: 800px;
@@ -39,11 +31,11 @@ text-align: left;
   gap: 20px;
 }
 
-  .container-map {
-    width: 290px;
+.container-map {
+  width: 290px;
+  border: 1px solid red;
   // flex: 1;
   // position: sticky;
 
   border-radius: 3px;
-  }
-
+}

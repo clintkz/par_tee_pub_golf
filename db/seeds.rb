@@ -26,7 +26,7 @@ courses = {
   "James Blunt" => [
     { name: "The Fox and the Pheasant", address: "1 Billing Rd, London SW10 9UJ", drink: "Guinness" },
     { name: "Hollywood Arms", address: "45 Hollywood Rd, London SW10 9HX", drink: "Vodka Lime and Soda" },
-    { name: "Maggies Club", address: "329 Fulham Rd., London SW10 9QL", drink: "Tequila" }
+    { name: "Maggies Club", address: "329 Fulham Rd, London SW10 9QL", drink: "Tequila" }
   ]
 }
 # Create Courses and Pubs
@@ -39,9 +39,11 @@ courses.each do |course_name, pubs|
       drink: pub_info[:drink],
       course: course
     )
+    puts "#{Pub.last.name} created"
+
   end
 end
-
+puts "#{Course.count} courses created"
 # Create Users
 users = [
   { email: "user1@example.com", password: "password1", first_name: "Vince", last_name: "McMohan" },
@@ -50,5 +52,7 @@ users = [
   { email: "user4@example.com", password: "password4", first_name: "Steve", last_name: "Austin"  },
   { email: "user5@example.com", password: "pathword", first_name: "Dwayne", last_name: "Johnson"  },
 ]
-
-User.create!(users)
+users.each do|user|
+  User.create!(user)
+end
+puts "#{User.count} users created"
