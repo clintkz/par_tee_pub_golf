@@ -9,9 +9,10 @@ class GamesController < ApplicationController
     @course = Course.find(params[:course_id])
     @game = Game.new(game_params)
     @game.course = @course
+    #@game.owner = current_user
     if @game.save
       # Add participants to the game
-      # params[:game][:user_ids].each do |user_id|
+      # game_params[:user_ids].each do |user_id|
       #   Participant.create(user_id: user_id, game: @game) unless user_id.nil?
       # end
       puts "redirecting to games page"
