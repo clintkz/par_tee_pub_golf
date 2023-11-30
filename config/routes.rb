@@ -14,6 +14,13 @@ Rails.application.routes.draw do
     resources :games, only: [:new, :create]
   end
 
-  resources :games, only: [:show]
+  resources :games, only: [:show, :index]
+
+  resources :games do
+    resources :participants do
+      patch :accept, on: :member
+      patch :decline, on: :member
+    end
+  end
 
 end

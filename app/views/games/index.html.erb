@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <h1>My Games</h1>
+
+  <h2>Games I've Created</h2>
+  <ul>
+    <% @created_games.each do |game| %>
+      <li><%= link_to game.course.name, game_path(game) %> </li>
+    <% end %>
+  </ul>
+
+  <h2>Games I've Been Invited To</h2>
+  <ul>
+    <% @invited_games.each do |game| %>
+      <li><%= link_to game.course.name, game_path(game) %> </li>
+    <% end %>
+  </ul>
+</div>
