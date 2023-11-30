@@ -20,6 +20,16 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def mark_as_arrived
+    participant = current_user.participants.find_by(id: params[:id], game_id: params[:game_id])
+    if participant
+      participant.update(arrived: true)
+      redirect_to game_path(participant.game), notice: 'You have been marked as arrived.'
+    else
+      redirect_to games_path, alert: 'You are not authorized to perform this action.'
+    end
+  end
+
   private
 
   def current_user_participant(participant_id)
