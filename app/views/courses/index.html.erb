@@ -8,7 +8,8 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700|Roboto:400,700&display=swap" rel="stylesheet">
 
   <style>
-    h1, h2, h3, h4, h5, h6, p {
+  
+  h1, h2, h3, h4, h5, h6, p {
       font-family:  "Courier";
     }
   </style>
@@ -23,7 +24,8 @@
 
     <% @courses.each do |course| %>
       <div class="card-pub">
-        <h2><%= course.name %> </h2>
+
+         <h3><%= link_to course.name, course_path(course) %></h3>
         <div style="width: 300px; height: 200px;"
           data-controller="map"
           data-map-markers-value="<%= params["#{course.name}"].to_json %>"
@@ -33,5 +35,3 @@
     <% end %>
   </div>
 </div>
-
-
