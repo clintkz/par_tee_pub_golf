@@ -1,7 +1,7 @@
 class ParticipantsController < ApplicationController
 
   def accept
-    participant = current_user_participant(params[:id])
+    participant = current_user.participants.find_by(id: params[:id])
     if participant
       participant.update(status: 'accepted')
       redirect_to game_path(participant.game), notice: 'You have accepted the invite.'
@@ -11,7 +11,7 @@ class ParticipantsController < ApplicationController
   end
 
   def decline
-    participant = current_user_participant(params[:id])
+    participant = current_user.participants.find_by(id: params[:id])
     if participant
       participant.update(status: 'declined')
       redirect_to game_path(participant.game), notice: 'You have declined the invite.'
