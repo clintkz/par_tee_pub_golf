@@ -17,8 +17,10 @@ class ParticipantsController < ApplicationController
   def show
     @participant = Participant.find(params[:id])
     @user_email = @participant.user.email
-    # @user_name = @participant.user.name
+    @user_first_name = @participant.user.first_name
+    @user_last_name = @participant.user.last_name
     @game = Game.new
+    @pub = Pub.new
   end
 
 

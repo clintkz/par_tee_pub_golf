@@ -44,11 +44,11 @@ end
 
 # Create Users
 users = [
-  { email: "user1@example.com", password: "password1" },
-  { email: "user2@example.com", password: "password2" },
-  { email: "user3@example.com", password: "password3" },
-  { email: "user4@example.com", password: "password4" },
-  { email: "user5@example.com", password: "pathword" },
+  { email: "user1@example.com", password: "password1", first_name: "Vince", last_name: "McMohan" },
+  { email: "user2@example.com", password: "password2", first_name: "Shaun", last_name: "Michaels" },
+  { email: "user3@example.com", password: "password3", first_name: "Brett", last_name: "Heart"  },
+  { email: "user4@example.com", password: "password4", first_name: "Steve", last_name: "Austin"  },
+  { email: "user5@example.com", password: "pathword", first_name: "Dwayne", last_name: "Johnson"  },
 ]
 
 User.create!(users)
