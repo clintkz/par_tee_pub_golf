@@ -3,7 +3,6 @@ class ParticipantsController < ApplicationController
   def new
     @participant = Participant.new
     @game = Game.find(params[:game_id])
-
   end
 
   def create
@@ -25,6 +24,8 @@ class ParticipantsController < ApplicationController
 
   def participant_params
     params.permit(:game_id)
+  end
+  
   def accept
     participant = current_user.participants.find_by(id: params[:id])
     if participant
