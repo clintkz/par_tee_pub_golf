@@ -5,15 +5,19 @@ Rails.application.routes.draw do
 
   root to: "courses#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :courses, only: [:index]
+  # resources :courses, only: [:index]
   # Defines the root path route ("/")
   # root "articles#index"
   resources :pubs, only: [:index]
-  
+
   resources :courses do
     resources :games, only: [:new, :create]
   end
 
+  # resources :games do
+  #   resources :participants, only: [:show]
+  # end
+  # # resources :games, only: [:show]
   resources :games, only: [:show, :index]
 
   resources :games do
