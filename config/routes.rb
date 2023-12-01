@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :participants do
       patch :accept, on: :member
       patch :decline, on: :member
+      patch :mark_as_arrived, on: :member
     end
   end
 
