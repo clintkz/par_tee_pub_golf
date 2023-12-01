@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
- 
+
   resources :courses,  only: [:show]
 
   root to: "courses#index"
@@ -19,6 +19,12 @@ Rails.application.routes.draw do
     resources :participants do
       patch :accept, on: :member
       patch :decline, on: :member
+    end
+  end
+
+  resources :participants do
+    collection do
+      post "calculate_scores", to: "participants#calculate_scores", as: "calculate_scores"
     end
   end
 

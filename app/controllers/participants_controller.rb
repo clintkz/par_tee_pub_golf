@@ -20,6 +20,21 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def index
+    @participants = Participant.all
+  end
+
+  def calculate_scores
+    @participants = Participant.all
+
+    @participants.each do |participant|
+      participant.total_score = participant.score1 + participant.score2 + participant.score3
+      participant.save
+    end
+
+    redirect_to participants_path, notice: 'Scores calculated successfully.'
+  end
+
   private
 
   def current_user_participant(participant_id)
