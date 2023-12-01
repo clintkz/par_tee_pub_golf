@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :courses, only: [:index]
   # Defines the root path route ("/")
   # root "articles#index"
-
+  resources :pubs, only: [:index]
+  
   resources :courses do
     resources :games, only: [:new, :create]
   end
