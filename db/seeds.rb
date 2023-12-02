@@ -11,6 +11,7 @@ LOCATIONS = ["SW London", "Central London", "North London"]
 Course.destroy_all
 User.destroy_all
 
+
 # Define Courses and their Pubs
 courses = {
   "South Ken Classic" => [
