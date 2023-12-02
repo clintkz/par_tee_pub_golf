@@ -20,6 +20,10 @@ class CoursesController < ApplicationController
     @pubs = @course.pubs
   end
 
+  def ratings
+
+  end
+
   private
 
   def course_params
