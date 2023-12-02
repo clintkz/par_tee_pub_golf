@@ -78,7 +78,3 @@ class ParticipantsController < ApplicationController
   end
 end
 
-
-# def dog_params
-#   params.require(:dog).permit(:name, :description, :location, :user_id, photos: [])
-# end
