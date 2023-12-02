@@ -18,19 +18,19 @@ Game.destroy_all
 # Define Courses and their Pubs
 courses = {
   "South Ken Classic" => [
-    { name: "Angelsea Arms", address: "15 Selwood Terrace, South Kensington, London SW7 3QG", drink: "Lager", strokes: "3" },
-    { name: "Drayton Arms", address: "153 Old Brompton Rd, Greater, London SW5 0LJ", drink: "Gin and Tonic", strokes: "2" },
-    { name: "Nam Long", address: "159 Old Brompton Rd, London SW5 0LJ", drink: "Flaming Ferrari", strokes: "1" }
+    { name: "Angelsea Arms", address: "15 Selwood Terrace, South Kensington, London SW7 3QG",image: "angelsea_arms.png", drink: "Lager", strokes: "3" },
+    { name: "Drayton Arms", address: "153 Old Brompton Rd, Greater, London SW5 0LJ", image: "beer.png", drink: "Gin and Tonic", strokes: "2" },
+    { name: "Nam Long", address: "159 Old Brompton Rd, London SW5 0LJ", image: "beer.png", drink: "Flaming Ferrari", strokes: "1" }
   ],
   "The Old Course"  => [
     { name: "The Suprise, Chelsea", address: "6 Christchurch Terrace, London SW3 4AJ", drink: "Lager", strokes: "3" },
-    { name: "The Sydney Arms", address: "70 Sydney St, London SW3 6NJ", drink: "Guinness", strokes: "2" },
-    { name: "Cadogen Arms", address: "298 King's Rd, London SW3 5UG", drink: "Old Fashion", strokes: "5" }
+    { name: "The Sydney Arms", address: "70 Sydney St, London SW3 6NJ", image: "beer.png", drink: "Guinness", strokes: "2" },
+    { name: "Cadogen Arms", address: "298 King's Rd, London SW3 5UG", image: "beer.png",drink: "Old Fashion", strokes: "5" }
   ],
   "James Blunt" => [
-    { name: "The Fox and the Pheasant", address: "1 Billing Rd, London SW10 9UJ", drink: "Guinness", strokes: "2" },
-    { name: "Hollywood Arms", address: "45 Hollywood Rd, London SW10 9HX", drink: "Vodka Lime and Soda", strokes: "3" },
-    { name: "Maggies Club", address: "329 Fulham Rd, London SW10 9QL", drink: "Tequila", strokes: "1" }
+    { name: "The Fox and the Pheasant", address: "1 Billing Rd, London SW10 9UJ", image: "beer.png", drink: "Guinness", strokes: "2" },
+    { name: "Hollywood Arms", address: "45 Hollywood Rd, London SW10 9HX", image: "beer.png", drink: "Vodka Lime and Soda", strokes: "3" },
+    { name: "Maggies Club", address: "329 Fulham Rd, London SW10 9QL", image: "beer.png", drink: "Tequila", strokes: "1" }
   ]
 }
 # Create Courses and Pubs

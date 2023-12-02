@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :courses,  only: [:show]
+  get "/ratings", to: "pages#ratings"
 
   root to: "courses#index"
 
-  resources :pubs, only: [:index]
+  resources :pubs, only: [:show, :index]
 
   resources :courses do
     resources :games, only: [:new, :create]
