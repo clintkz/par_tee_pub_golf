@@ -27,11 +27,14 @@
         <% if participant.status == 'accepted' || participant.user_id == @game.user_id %>
           - Arrived: <%= participant.arrived ? 'Yes' : 'No' %>
         <% end %>
-<% if (participant.user == current_user && (participant.status == 'accepted' || current_user.id == @game.user_id)) %>
-  <%= button_to 'Mark as Arrived', mark_as_arrived_game_participant_path(@game, participant), method: :patch, class: 'btn btn-primary' unless participant.arrived %>
-<% end %>
-
+        <% if (participant.user == current_user && (participant.status == 'accepted' || current_user.id == @game.user_id)) %>
+          <%= button_to 'Mark as Arrived', mark_as_arrived_game_participant_path(@game, participant), method: :patch, class: 'btn btn-primary' unless participant.arrived %>
+        <% end %>
       </li>
     <% end %>
+
+  <% if current_user.id == @game.user_id && @game.status != "started" %>
+    <%= button_to 'Start Game', start_game_path(@game), method: :post %>
+  <% end %>
   </ul>
 </div>

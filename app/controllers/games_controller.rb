@@ -36,6 +36,13 @@ class GamesController < ApplicationController
     @invited_games = @invited_games.where.not(user_id: current_user.id)
   end
 
+  def start
+    @game = Game.find(params[:id])
+    @game.update(status: "started")
+    participant = @game.participants.find_by(user_id: current_user.id)
+    redirect_to game_participant_path(@game, participant), notice: 'Game has started!'
+  end
+
   private
 
   def game_params
