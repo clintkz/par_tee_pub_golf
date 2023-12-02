@@ -20,7 +20,7 @@ class ParticipantsController < ApplicationController
     @user_last_name = @participant.user.last_name
     @game = Game.find(params[:game_id])
     @course = @game.course
-    @pubs = @game.course.pubs
+    @pubs = @course.pubs
   end
 
   def participant_params
