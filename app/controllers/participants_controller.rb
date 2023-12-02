@@ -18,14 +18,15 @@ class ParticipantsController < ApplicationController
     @user_email = @participant.user.email
     @user_first_name = @participant.user.first_name
     @user_last_name = @participant.user.last_name
-    @game = Game.new
-    @pub = Pub.new
+    @game = Game.find(params[:game_id])
+    @course = @game.course
+    @pubs = @course.pubs
   end
 
   def participant_params
     params.permit(:game_id)
   end
-  
+
   def accept
     participant = current_user.participants.find_by(id: params[:id])
     if participant
