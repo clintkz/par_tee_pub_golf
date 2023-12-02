@@ -1,4 +1,5 @@
 class ParticipantsController < ApplicationController
+INDEX_VALUE=2
 
   def new
     @participant = Participant.new
@@ -21,7 +22,7 @@ class ParticipantsController < ApplicationController
     @game = Game.find(params[:game_id])
     @course = @game.course
     @pubs = @course.pubs
-    @pub = @pubs.next
+    @pub = @pubs[INDEX_VALUE]
   end
 
   # def individual_pubs
@@ -77,4 +78,3 @@ class ParticipantsController < ApplicationController
     current_user.participants.find_by(id: participant_id)
   end
 end
-
