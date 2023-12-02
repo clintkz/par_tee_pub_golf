@@ -3,4 +3,8 @@ class Game < ApplicationRecord
   # belongs_to :owner, class_name: "User"
   has_many :participants
   has_many :users, through: :participants
+
+  def participant?(user)
+    participants.where(user: user, status: 'accepted').exists? || user.id == user_id
+  end
 end

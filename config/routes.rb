@@ -26,6 +26,10 @@ Rails.application.routes.draw do
       patch :decline, on: :member
       patch :mark_as_arrived, on: :member
     end
+    member do
+      post :start
+    end
   end
+
 
 end
