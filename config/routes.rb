@@ -20,16 +20,15 @@ Rails.application.routes.draw do
   # # resources :games, only: [:show]
   resources :games, only: [:show, :index]
 
-  resources :games do
+  resources :games, only: [:show, :index] do
+    get 'scorecard', on: :member
     resources :participants do
       patch :accept, on: :member
       patch :decline, on: :member
       patch :mark_as_arrived, on: :member
-    end
-    member do
-      post :start
-    end
+      member do
+        post :start
+      end
   end
-
-
+end
 end
