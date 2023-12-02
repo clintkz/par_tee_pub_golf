@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_30_173158) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "arrived"
   end
 
   create_table "pub_scores", force: :cascade do |t|
