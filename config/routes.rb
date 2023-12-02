@@ -18,17 +18,18 @@ Rails.application.routes.draw do
   #   resources :participants, only: [:show]
   # end
   # # resources :games, only: [:show]
-  resources :games, only: [:show, :index]
+  resources :participants, only: [:show]
 
+  # to clean up below code repititions
   resources :games, only: [:show, :index] do
+    member do
+      post :start
+    end
     get 'scorecard', on: :member
     resources :participants do
       patch :accept, on: :member
       patch :decline, on: :member
       patch :mark_as_arrived, on: :member
-      member do
-        post :start
-      end
+    end
   end
-end
 end
