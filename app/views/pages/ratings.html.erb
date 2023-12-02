@@ -1,13 +1,12 @@
 <div class="container-courses">
 
-
   <div class="card-heading">
-      <h5>Rate this app:</h5>
+    <h5>Rate this app:</h5>
     <%= image_tag("rating.png", alt: "Rating Image", style: "width: 200px; height: auto;") %>
-    </div>
-    <div class="card-pub">
-            <p>We would really appreciate it if you took the time to rate this app</p>
+  </div>
+  <div class="card-pub">
+    <p>We would really appreciate it if you took the time to rate this app</p>
   </div>
 
-    <%= link_to "Yes", ratings_path, class: "btn btn-primary" %>
-        <%= link_to "No", ratings_path, class: "btn btn-secondary" %>
+  <%= link_to "Yes", ratings_path, class: "btn btn-primary" %>
+  <%= link_to "No", ratings_path, class: "btn btn-secondary" %>
