@@ -4,13 +4,14 @@
 
 <div class="container">
   <h2><%= @course.name %></h2>
-   <% @pubs.each do |pub| %>
-   <p> <%= pub.id %> </p>
+   <% @pub %>
+   <p> <%= @pub %> </p>
       <div class="card-pub">
-        <p class="pub-name"><%= pub.name  %></p>
-        <p class="pub-address"><%= pub.address %></p>
-        <p class="pub-drink"><%= pub.drink %></p>
+        <p class="pub-name"><%= @pub.name  %></p>
+        <p class="pub-address">Addresss: <%= @pub.address %></p>
+        <p class="pub-drink">Drink: <%= @pub.drink %></p>
+        <p class="pub-strokes">Par: <%= @pub.strokes %></p>
       </div>
-    <% end %>
-
+    <%# <% end %>
+  <>
 </div>

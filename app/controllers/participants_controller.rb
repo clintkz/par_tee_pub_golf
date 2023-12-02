@@ -21,7 +21,21 @@ class ParticipantsController < ApplicationController
     @game = Game.find(params[:game_id])
     @course = @game.course
     @pubs = @course.pubs
+    @pub = @pubs.next
   end
+
+  # def individual_pubs
+  #   n=0
+  #   @participant = Participant.find(params[:id])
+  #   @user_email = @participant.user.email
+  #   @user_first_name = @participant.user.first_name
+  #   @user_last_name = @participant.user.last_name
+  #   @game = Game.find(params[:game_id])
+  #   @course = @game.course
+  #   @pubs = @course.pubs
+  #   @pub = @pubs[n]
+  #   # n +=n
+  # end
 
   def participant_params
     params.permit(:game_id)
