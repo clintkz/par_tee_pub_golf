@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: "courses#index"
 
-  resources :pubs, only: [:index]
+  resources :pubs, only: [:show, :index]
 
   resources :courses do
     resources :games, only: [:new, :create]
