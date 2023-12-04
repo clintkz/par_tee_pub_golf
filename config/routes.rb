@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :participants, only: [:show]
 
+  resources :chatrooms, only: [:show]
+
   resources :games, only: [:show, :index] do
     member do
       post :start
