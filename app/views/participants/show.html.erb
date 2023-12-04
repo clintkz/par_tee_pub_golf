@@ -12,14 +12,20 @@
         <p class="pub-drink">Drink: <%= @pub.drink %></p>
         <p class="pub-strokes">Par: <%= @pub.strokes %></p>
       </div>
-
-      <div class="container">
+<%# <% end %>
+      <%# <div class="container">
           <%= form_with(model: [@game, @participant], class: 'form') do |form| %>
-      </div>
-
-    <div class="form-group">
-      <%= form.submit "Next Pub", class: 'btn btn-primary' %>
+      <%# </div> %>
+    <div class="container">
+      <% if @last_element == false %>
+        <%= link_to 'Next Pub', game_participant_path(pub_id: @pub.id) %>
+      <% else %>
+        <%= link_to 'Final Scores', game_participant_path %>
+      <%end%>
     </div>
-  <% end %>
+    <%# <div class="form-group"> %>
+      <%# <%= form.submit "Next Pub", class: 'btn btn-primary' %>
+    <%# </div> %>
+  <%# <% end %>
       </div>
 </div>

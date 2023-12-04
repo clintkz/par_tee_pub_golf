@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-INDEX_VALUE=2
+INDEX_VALUE=0
 
   def new
     @participant = Participant.new
@@ -22,8 +22,18 @@ INDEX_VALUE=2
     @game = Game.find(params[:game_id])
     @course = @game.course
     @pubs = @course.pubs
-    @pub = @pubs[INDEX_VALUE]
+    if params[:pub_id].nil?
+      @pub = @pubs[0]
+    else
+      @pub_index = @pubs.find_index(@pubs.find(params[:pub_id]))
+      @pub = @pubs[@pub_index +1]
+    end
+
+    @pub_index = @pubs.find_index(@pubs.find(@pub.id))
+    @last_element = @pubs.size - 1 == @pub_index
   end
+
+
 
   # def individual_pubs
   #   n=0
