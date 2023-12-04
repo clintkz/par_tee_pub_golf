@@ -7,8 +7,8 @@ margin-left: 20px;
 border-radius: 3px;
 // display: flex;
 // padding: 2px 16px;
-background-color: white;
-color: navy;
+background-color: rgb(231, 136, 3);
+color: white;
 }
 
 .container-large .left-aligned-text {
@@ -20,9 +20,10 @@ text-align: left;
   margin: 0 auto;
   padding: 20px;
   font-family: Courier, sans-serif;
-  color: #333;
-  background-color: rgb(236, 233, 233);
-  color: navy;
+  // color: #333;
+  // background-color: rgb(236, 233, 233);
+  background-color: rgb(231, 151, 3);
+  color: white;
   border-radius: 20px;
 }
 .container-pubs {
