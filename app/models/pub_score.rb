@@ -1,2 +1,3 @@
 class PubScore < ApplicationRecord
+  
 end
