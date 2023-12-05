@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   end
 
   resources :participants, only: [:show] do
-    resources :pub_scores, only: [:create]
+    member do
+      post :save_score
+    end
+  end
+
+  resources :participants do
+    resources :pub_scores, only: [:create, :update]
   end
 
   # resources :chatrooms, only: [:show]
@@ -24,6 +30,7 @@ Rails.application.routes.draw do
   resources :games, only: [:show, :index] do
     member do
       post :start
+      get 'participants_show'
     end
     get 'scorecard', on: :member, as: "scorecard"
     resources :participants, except: [:show, :index, :create, :new, :edit, :destroy, :update] do
