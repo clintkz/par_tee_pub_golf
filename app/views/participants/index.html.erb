@@ -1,3 +1,6 @@
+    <!--
+
+
 <div class="container">
 
 <h1>Final scores</h1>
@@ -8,8 +11,8 @@
     <th>Score 1</th>
     <th>Score 2</th>
     <th>Score 3</th>
-    <!-- ... Add more score columns here if needed -->
     <th>Total Score</th>
+    ... Add more score columns here if needed
   </tr>
 
   <% @participants.each do |participant| %>
@@ -18,7 +21,9 @@
       <td><%= participant.score1 %></td>
       <td><%= participant.score2 %></td>
       <td><%= participant.score3 %></td>
-      <!-- ... Display more scores -->
+
+       ... Display more scores
+
       <td><%= participant.total_scores %></td>
     </tr>
   <% end %>
@@ -27,3 +32,5 @@
 <%= link_to 'Calculate Scores',  calculate_scores_participants_path, method: :post %>
 
 </div>
+
+    -->

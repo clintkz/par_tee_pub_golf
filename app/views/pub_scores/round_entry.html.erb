@@ -1,0 +1,19 @@
+<%= alert %>
+<br>
+<div class="container text-center mt-5">
+  <div class="form">
+    <h1 class="h1 mb-3 fw-bold"><%= @participant.game.name %></h1>
+
+    <% @participant.pubs.each do |p| %>
+    <p class='lead fs-4'><%= "Participant #{@n+=1}: #{p.name}" %><p>
+    <% end %>
+
+    <%= form_tag "/participants/#{@participant.id}/pub scores", method: :post do %>
+
+    <% @participant.number_of_pub_scores .times do%>
+    <%= render 'group_hole_form' %>
+    <br>
+    <% end %>
+
+    <%= submit_tag "submit", class: 'btn btn-primary shadow mt-2' %>
+    <% end %>

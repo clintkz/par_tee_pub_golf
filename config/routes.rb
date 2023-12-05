@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :pubs, only: [:index]
+  resources :pub_scores, only: [:index, :round_entry]
 
   resources :courses do
     resources :games, only: [:new, :create]
@@ -22,11 +23,5 @@ resources :games, only: [:show, :index] do
     patch :mark_as_arrived, on: :member
   end
 end
-
-  resources :participants do
-    collection do
-      post "calculate_scores", to: "participants#calculate_scores", as: "calculate_scores"
-    end
-  end
 
 end
