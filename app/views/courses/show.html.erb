@@ -1,20 +1,23 @@
 <div class="container-courses">
-  <div class="container">
+  <div class="container-parent">
   <div class="header-section">
     <h3 class="courses-heading">Hi, <%= current_user.email %></h3>
     <p class="courses-subheading">Please see a list of your available pubs in this course:</p>
   </div>
 
   <div class="card-heading">
+      <strong>
       <p class="course-name"><%= @course.name %></p>
       <p class="course-location"><%= @course.location %></p>
-      <p class="course-pubs"><%= @course.number_of_pubs %> pubs available</p>
+      <p class="course-pubs"><%= @course.number_of_pubs %> pubs available</p></strong>
   </div>
 
     <% @pubs.each do |pub| %>
-    <%= pub.id %>
-      <div class="card-pub">
+    <%#= pub.id %>
+      <div class="card-subheading">
         <p class="pub-name"><%= link_to pub.name, pub_path(pub.id) %></p>
+      </div>
+    <div class="card-pub">
         <p class="pub-address"><%= pub.address %></p>
         <p class="pub-drink"><%= pub.drink %></p>
       </div>
