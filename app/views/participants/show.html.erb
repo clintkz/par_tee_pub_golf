@@ -61,6 +61,7 @@
             <% if participant.user == current_user %>
               <%= form_with(model: [participant, score]) do |form| %>
                 <%= form.number_field :score %>
+                <%= form.hidden_field :participant_id %>
                 <%= form.hidden_field :pub_id, value: pub.id %>
                 <%= form.submit "Save" %>
               <% end %>
