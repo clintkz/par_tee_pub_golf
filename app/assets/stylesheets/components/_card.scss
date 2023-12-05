@@ -9,6 +9,16 @@
   color: rgb(121, 121, 121);
 }
 
+.card-subheading {
+  width: 480px;
+  background: rgb(231, 136, 3);
+  // color: rgb(40, 5, 128);
+  margin-bottom: 10px;
+  border-radius: 20px;
+  padding: 4px;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+}
 .card-map {
   // display: flex;
   width: 480px;
