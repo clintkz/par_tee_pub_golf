@@ -12,12 +12,16 @@ class CoursesController < ApplicationController
         }
       end
     end
-
   end
 
   def show
     @course = Course.find(params[:id])
     @pubs = @course.pubs
+    # @pub = Pub.find(params[:id])
+  end
+
+  def ratings
+
   end
 
   private

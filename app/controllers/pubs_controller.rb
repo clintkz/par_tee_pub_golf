@@ -10,4 +10,9 @@ class PubsController < ApplicationController
     end
   end
 
+  def show
+    @pubs = Pub.all
+    @pub = @pubs.find(params[:id])
+
+  end
 end

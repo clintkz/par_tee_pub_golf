@@ -1,36 +1,40 @@
 .card-pub {
-  width: 500px;
+  width: 480px;
   background: rgb(244, 243, 243);
-  color: rgb(40, 5, 128);
+  // color: rgb(40, 5, 128);
   margin-bottom: 10px;
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: rgb(121, 121, 121);
 }
-// .card-pub {
-//   border: 1px solid #ccc;
-//   padding: 10px;
-//   border-radius: 5px;
-//   background-color: white;
-// }
+
 .card-map {
   // display: flex;
-  width: 290px;
+  width: 480px;
   background: white;
-  color: rgb(40, 5, 128);
+  color: rgb(121, 121, 121);
   margin-bottom: 10px;
-  border-radius: 6px;
-  padding: 4px;
+  border-radius: 20px;
+  // padding: 4px;
+
+}
+.card-map > div {
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 }
 .card-heading {
   // display: flex;
   // height: 70px;
-  width: 500px;
-  background: rgba(244, 243, 243, 0.792);
-  color: rgb(40, 5, 128);
+  width: 480px;
+  background: rgb(238, 238, 238);
+  // color: rgb(40, 5, 128);
+  color: rgb(121, 121, 121);
   margin-bottom: 10px;
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+// background: rgba(244, 243, 243, 0.792);
+// rgb(40, 5, 128)

@@ -1,18 +1,14 @@
 
+<div class="container-courses">
 
-
-<div class="container-parent">
-  <%= image_tag("logo_page.png", alt: "Par-tee Image", style: "width: 200px; height: auto;") %>
   <div class="container">
-    <div class="card-heading">
-      <h5>Welcome to Par-tee, the Pub golf drinking game! Choose from the courses below:</h5>
-    </div>
+      <h5>Welcome! Choose from the courses below to get started:</h5>
 
     <% @courses.each do |course| %>
-      <div class="card-pub">
+         <p><%= link_to course.name, course_path(course) %></p>
+      <div class="card-map">
 
-         <h3><%= link_to course.name, course_path(course) %></h3>
-        <div style="width: 300px; height: 200px;"
+        <div style="width: 480px; height: 200px;"
           data-controller="map"
           data-map-markers-value="<%= params["#{course.name}"].to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -20,4 +16,5 @@
       </div>
     <% end %>
   </div>
+    <%= link_to "Rate this app", ratings_path, class: "btn btn-primary" %>
 </div>

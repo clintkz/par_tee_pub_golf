@@ -11,7 +11,7 @@ class PubScoresController < ApplicationController
     participant=Participant.find_by(id: params[:participant_id].to_i)
     params[:pub_scores].each do |pub_score|
       if pub_score[:score].blank?
-        return redirect_to "/participants/#{participant.id}/pub_scores/round_entry", alert: "Please enter a score for each hole before submiting."
+        return redirect_to "/participants/#{participant.id}/pub_scores/round_entry", alert: "Please enter a score for each pubs before submiting."
       end
     end
 
@@ -21,7 +21,7 @@ class PubScoresController < ApplicationController
           create_pub_scores_from_round(round)
       end
     end
-  redirect_to "/games/#{participant.game.id}/posting"
+ redirect_to "/games/#{participant.game.id}/posting"
   end
 
   end
