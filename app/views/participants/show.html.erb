@@ -4,13 +4,28 @@
 
 <div class="container">
   <h2><%= @course.name %></h2>
-   <% @pubs.each do |pub| %>
-   <p> <%= pub.id %> </p>
+   <%= @pub.id %>
+   <p> <%= @pub %> </p>
       <div class="card-pub">
-        <p class="pub-name"><%= pub.name  %></p>
-        <p class="pub-address"><%= pub.address %></p>
-        <p class="pub-drink"><%= pub.drink %></p>
+        <p class="pub-name"><%= @pub.name  %></p>
+        <p class="pub-address">Addresss: <%= @pub.address %></p>
+        <p class="pub-drink">Drink: <%= @pub.drink %></p>
+        <p class="pub-strokes">Par: <%= @pub.strokes %></p>
       </div>
-    <% end %>
-
+<%# <% end %>
+      <%# <div class="container">
+          <%= form_with(model: [@game, @participant], class: 'form') do |form| %>
+      <%# </div> %>
+    <div class="container">
+      <% if @last_element == false %>
+        <%= link_to 'Next Pub', game_participant_path(pub_id: @pub.id) %>
+      <% else %>
+        <%= link_to 'Final Scores', game_participant_path %>
+      <%end%>
+    </div>
+    <%# <div class="form-group"> %>
+      <%# <%= form.submit "Next Pub", class: 'btn btn-primary' %>
+    <%# </div> %>
+  <%# <% end %>
+      </div>
 </div>
