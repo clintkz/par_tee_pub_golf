@@ -12,13 +12,22 @@ Rails.application.routes.draw do
     resources :games, only: [:new, :create]
   end
 
-  resources :participants, only: [:show]
+  resources :participants, only: [:show] do
+    member do
+      post :save_score
+    end
+  end
+
+  resources :participants do
+    resources :pub_scores, only: [:create, :update]
+  end
 
   resources :chatrooms, only: [:show]
 
   resources :games, only: [:show, :index] do
     member do
       post :start
+      get 'participants_show'
     end
     get 'scorecard', on: :member
     resources :participants do
