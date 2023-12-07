@@ -55,15 +55,19 @@
     <tbody>
       <% @game.participants.each do |participant| %>
         <tr>
-          <td><%= participant.user.email %></td>
-          <td>
-            <% score = participant.pub_scores.find_or_initialize_by(pub: pub) %>
+          <td><%= participant.user.first_name %></td>
+           <% score = participant.pub_scores.find_or_initialize_by(pub: pub) %>
             <% if participant.user == current_user %>
-              <%= form_with(model: [participant, score]) do |form| %>
-                <%= form.number_field :score %>
-                <%= form.hidden_field :participant_id %>
-                <%= form.hidden_field :pub_id, value: pub.id %>
-                <%= form.submit "Save" %>
+            <td>
+              <% if score.new_record? %>
+                <%= form_with(model: [participant, score], local: true) do |form| %>
+                  <%= form.number_field :score %>
+                  <%= form.hidden_field :participant_id %>
+                  <%= form.hidden_field :pub_id, value: pub.id %>
+                  <%= form.submit "Save" %>
+                <% end %>
+              <% else %>
+                <%= score.score %>
               <% end %>
             <% else %>
               <%= score&.score || "No Score" %>
@@ -74,3 +78,11 @@
     </tbody>
   </table>
 <% end %>
+<div class="total-score">
+  <h3>Total Scores:</h3>
+  <% @game.participants.each do |participant| %>
+    <p>
+      <%= participant.user.first_name %>: <%= participant.total_score %>
+    </p>
+  <%end%>
+</div>

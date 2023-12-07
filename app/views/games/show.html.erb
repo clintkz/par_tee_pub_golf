@@ -39,5 +39,10 @@
       <div class="btn btn-primary">Chat</div>
     <% end %>
   <% end %>
+
+  <% if @game.status == "started" %>
+    <%= button_to 'Start Game', start_game_path(@game), method: :post %>
+  <% end %>
+
   </ul>
 </div>
