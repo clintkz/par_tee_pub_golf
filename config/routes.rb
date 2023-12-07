@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       patch :accept, on: :member
       patch :decline, on: :member
       patch :mark_as_arrived, on: :member
+      resources :pubscores
     end
   end
 end
