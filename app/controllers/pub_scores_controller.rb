@@ -1,7 +1,7 @@
 class PubScoresController < ApplicationController
   #before_action :require_login
 
-  def round_entry
+  def pubs_score
     @participant = Participants.find_by(id: params[:participant_id])
     @n=0
     @i=0
@@ -18,7 +18,7 @@ class PubScoresController < ApplicationController
     if helpers.current_user.games_id.include?(participant.game_id)
       round=Round.create(round_params)
       if !round.blank?
-          create_pub_scores_from_round(round)
+        create_pub_scores_from_round(round)
       end
     end
  redirect_to "/games/#{participant.game.id}/posting"
