@@ -36,5 +36,10 @@
   <% if current_user.id == @game.user_id && @game.status != "started" %>
     <%= button_to 'Start Game', start_game_path(@game), method: :post %>
   <% end %>
+
+  <% if @game.status == "started" %>
+    <%= button_to 'Start Game', start_game_path(@game), method: :post %>
+  <% end %>
+
   </ul>
 </div>
