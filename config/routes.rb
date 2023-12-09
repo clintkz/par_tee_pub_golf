@@ -13,13 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :participants, only: [:show] do
-    member do
-      post :save_score
-    end
-  end
-
-  resources :participants do
-    resources :pub_scores, only: [:create, :update]
+    resources :pub_scores, only: [:create]
   end
 
   # resources :chatrooms, only: [:show]
@@ -32,11 +26,12 @@ Rails.application.routes.draw do
       post :start
       get 'participants_show'
     end
-    get 'scorecard', on: :member
-    resources :participants do
+    get 'scorecard', on: :member, as: "scorecard"
+    resources :participants, except: [:show, :index, :create, :new, :edit, :destroy, :update] do
       patch :accept, on: :member
       patch :decline, on: :member
       patch :mark_as_arrived, on: :member
+      # resources :pub_scores
     end
   end
 end
