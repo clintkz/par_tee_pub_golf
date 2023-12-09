@@ -42,47 +42,57 @@
       </div>
 </div>
 
-<h1>Scorecard:</h1>
-<% @course.pubs.each do |pub| %>
-  <h3><%= pub.name %></h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Participant</th>
-        <th>Score</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @game.participants.each do |participant| %>
-        <tr>
-          <td><%= participant.user.first_name %></td>
-           <% score = participant.pub_scores.find_or_initialize_by(pub: pub) %>
-            <% if participant.user == current_user %>
-            <td>
-              <% if score.new_record? %>
-                <%= form_with(model: [participant, score], local: true) do |form| %>
-                  <%= form.number_field :score %>
-                  <%= form.hidden_field :participant_id %>
-                  <%= form.hidden_field :pub_id, value: pub.id %>
-                  <%= form.submit "Save" %>
-                <% end %>
-              <% else %>
-                <%= score.score %>
+<div class="row mt-4">
+    <div class="col-12">
+      <h1>Scorecard:</h1>
+      <% @course.pubs.each do |pub| %>
+        <h3><%= pub.name %></h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Participant</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @game.participants.each do |participant| %>
+              <% if participant.status == 'accepted' || participant.user_id == @game.user_id %>
+              <tr>
+                <td><%= participant.user.first_name %></td>
+                <td>
+                  <% score = participant.pub_scores.find_or_initialize_by(pub: pub) %>
+                  <% if participant.user == current_user %>
+                    <% if score.new_record? %>
+                      <%= form_with(model: [participant, score], local: true, class: 'form-inline') do |form| %>
+                        <%= form.number_field :score, class: 'form-control' %>
+                        <%= form.hidden_field :participant_id %>
+                        <%= form.hidden_field :pub_id, value: pub.id %>
+                        <%= form.submit "Save", class: 'btn btn-primary ml-2' %>
+                      <% end %>
+                    <% else %>
+                      <%= score.score %>
+                    <% end %>
+                  <% else %>
+                    <%= score&.score || "No Score" %>
+                  <% end %>
+                </td>
+              </tr>
               <% end %>
-            <% else %>
-              <%= score&.score || "No Score" %>
             <% end %>
-          </td>
-        </tr>
+          </tbody>
+        </table>
       <% end %>
-    </tbody>
-  </table>
-<% end %>
-<div class="total-score">
-  <h3>Total Scores:</h3>
-  <% @game.participants.each do |participant| %>
-    <p>
-      <%= participant.user.first_name %>: <%= participant.total_score %>
-    </p>
-  <%end%>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="total-score">
+        <h3>Total Scores:</h3>
+        <% @game.participants.each do |participant| %>
+          <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
