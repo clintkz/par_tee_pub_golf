@@ -5,17 +5,8 @@ Rails.application.routes.draw do
   get "/ratings", to: "pages#ratings"
 
   root to: "courses#index"
-<<<<<<< HEAD
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # resources :courses, only: [:index]
-  # Defines the root path route ("/")
-  # root "articles#index"
-  resources :pubs, only: [:index]
-  resources :pub_scores, only: [:index, :round_entry]
-=======
 
   resources :pubs, only: [:show, :index]
->>>>>>> master
 
   resources :courses do
     resources :games, only: [:new, :create]
