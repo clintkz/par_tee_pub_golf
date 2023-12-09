@@ -35,6 +35,9 @@
 
   <% if current_user.id == @game.user_id && @game.status != "started" %>
     <%= button_to 'Start Game', start_game_path(@game), method: :post %>
+    <%= link_to chatroom_path(@game.chatroom) do %>
+      <div class="btn btn-primary">Chat</div>
+    <% end %>
   <% end %>
   </ul>
 </div>
