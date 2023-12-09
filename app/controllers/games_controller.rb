@@ -43,6 +43,11 @@ class GamesController < ApplicationController
     redirect_to game_participant_path(@game, participant), notice: 'Game has started!'
   end
 
+  def scorecard
+    @game = Game.find(params[:id])
+    @pubs = @game.course.pubs
+  end
+
   private
 
   def game_params

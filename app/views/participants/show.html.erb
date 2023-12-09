@@ -20,7 +20,7 @@
       <% if @last_element == false %>
         <%= link_to 'Next Pub', participant_path(pub_id: @pub.id) %>
       <% else %>
-        <%= link_to 'Final Scores', participant_path %>
+        <%= link_to 'Final Scores', scorecard_game_path(@game) %>
       <%end%>
 
       <%= simple_form_for [@participant, @pub_score] do |form| %>
@@ -28,6 +28,9 @@
       <%= form.input :pub_id, as: :hidden%>
       <%= form.submit %>
       <% end %>
+    </div>
+
+
     </div>
     <%# <div class="form-group"> %>
       <%# <%= form.submit "Next Pub", class: 'btn btn-primary' %>

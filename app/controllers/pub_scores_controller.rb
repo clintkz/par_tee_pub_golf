@@ -19,10 +19,14 @@ class PubScoresController < ApplicationController
     @pub_score.participant = @participant
     @pub_score.save
       if @pub_score.pub == @pubs.last
-        redirect_to scorecard_path(@game)
+        redirect_to scorecard_game_path(@game)
       else
-    redirect_to participant_path(@participant, pub_id: @pub_score.pub.id + 1)
+    redirect_to participant_path(@participant, pub_id: @pub_score.pub.id)
       end
+  end
+
+  def total_score
+
   end
 
   def score_params
