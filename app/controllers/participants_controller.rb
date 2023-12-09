@@ -18,7 +18,9 @@ class ParticipantsController < ApplicationController
     @user_email = @participant.user.email
     @user_first_name = @participant.user.first_name
     @user_last_name = @participant.user.last_name
-    @game = Game.find(params[:game_id])
+    # @game = Game.find(params[:game_id])
+
+    @game = @participant.game
     @course = @game.course
     @pubs = @course.pubs
     if params[:pub_id].nil?
@@ -27,7 +29,7 @@ class ParticipantsController < ApplicationController
       @pub_index = @pubs.find_index(@pubs.find(params[:pub_id]))
       @pub = @pubs[@pub_index +1]
     end
-
+    @pub_score = PubScore.new(pub_id: @pub.id)
     @pub_index = @pubs.find_index(@pubs.find(@pub.id))
     @last_element = @pubs.size - 1 == @pub_index
   end
