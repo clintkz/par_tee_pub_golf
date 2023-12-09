@@ -37,8 +37,9 @@
     <%= button_to 'Start Game', start_game_path(@game), method: :post %>
   <% end %>
 
-  <% if @game.status == "started" %>
-    <%= button_to 'Start Game', start_game_path(@game), method: :post %>
+  <% participant = @game.participants.find_by(user: current_user) %>
+  <% if @game.status == "started" && participant&.status == 'accepted' %>
+    <%= button_to 'Tee-off', start_game_path(@game), method: :post %>
   <% end %>
 
   </ul>
