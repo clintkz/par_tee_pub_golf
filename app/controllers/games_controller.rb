@@ -10,6 +10,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     @game.course = @course
     @game.user_id = current_user.id
+    @game.chatroom = Chatroom.create(name:@course.name)
 
     if @game.save
       # Add participants to the game
