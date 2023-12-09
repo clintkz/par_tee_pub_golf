@@ -1,5 +1,4 @@
 class ParticipantsController < ApplicationController
-INDEX_VALUE=0
 
   def new
     @participant = Participant.new
@@ -19,7 +18,9 @@ INDEX_VALUE=0
     @user_email = @participant.user.email
     @user_first_name = @participant.user.first_name
     @user_last_name = @participant.user.last_name
-    @game = Game.find(params[:game_id])
+    # @game = Game.find(params[:game_id])
+
+    @game = @participant.game
     @course = @game.course
     @pubs = @course.pubs
     if params[:pub_id].nil?
@@ -28,25 +29,10 @@ INDEX_VALUE=0
       @pub_index = @pubs.find_index(@pubs.find(params[:pub_id]))
       @pub = @pubs[@pub_index +1]
     end
-
+    @pub_score = PubScore.new(pub_id: @pub.id)
     @pub_index = @pubs.find_index(@pubs.find(@pub.id))
     @last_element = @pubs.size - 1 == @pub_index
   end
-
-
-
-  # def individual_pubs
-  #   n=0
-  #   @participant = Participant.find(params[:id])
-  #   @user_email = @participant.user.email
-  #   @user_first_name = @participant.user.first_name
-  #   @user_last_name = @participant.user.last_name
-  #   @game = Game.find(params[:game_id])
-  #   @course = @game.course
-  #   @pubs = @course.pubs
-  #   @pub = @pubs[n]
-  #   # n +=n
-  # end
 
   def participant_params
     params.permit(:game_id)
