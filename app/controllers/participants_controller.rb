@@ -68,6 +68,17 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  # def save_score
+  #   pub_score = PubScore.find_or_initialize_by(participant_id: params[:participant_id], pub_id: params[:pub_score][:pub_id])
+  #   pub_score.score = params[:pub_score][:score]
+
+  #   if pub_score.save
+  #     redirect_to game_scorecard_path(pub_score.participant.game), notice: "Score updated!"
+  #   else
+  #     redirect_to game_scorecard_path(pub_score.participant.game), alert: "Failed to update score."
+  #   end
+  # end
+
   private
 
   def current_user_participant(participant_id)
