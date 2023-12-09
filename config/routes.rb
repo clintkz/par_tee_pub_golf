@@ -23,8 +23,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [:show, :index] do
     member do
-      post :start
-      get 'participants_show'
+      patch :start
     end
     get 'scorecard', on: :member, as: "scorecard"
     resources :participants, except: [:show, :index, :create, :new, :edit, :destroy, :update] do
