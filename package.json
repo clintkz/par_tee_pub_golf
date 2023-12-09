@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@rails/actioncable": "^7.1.2",
+    "stimulus": "^3.2.2"
+  }
+}
