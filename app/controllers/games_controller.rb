@@ -41,7 +41,12 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.update(status: "started")
     participant = @game.participants.find_by(user_id: current_user.id)
-    redirect_to game_participant_path(@game, participant), notice: 'Game has started!'
+    redirect_to participant_path(@game, participant.id), notice: 'Game has started!'
+  end
+
+  def scorecard
+    @game = Game.find(params[:id])
+    @pubs = @game.course.pubs
   end
 
   private

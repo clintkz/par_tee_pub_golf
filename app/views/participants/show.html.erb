@@ -2,7 +2,7 @@
 <%= @user_first_name %>
 </div>
 
-<div class="container-parent">
+<div class="container-courses">
   <h2><%= @course.name %></h2>
    <%= @pub.id %>
    <p> <%= @pub %> </p>
@@ -16,16 +16,28 @@
       <%# <div class="container">
           <%= form_with(model: [@game, @participant], class: 'form') do |form| %>
       <%# </div> %>
-    <div class="container">
+    <div class="container-courses">
       <% if @last_element == false %>
-        <%= link_to 'Next Pub', game_participant_path(pub_id: @pub.id) %>
+        <%= link_to 'Next Pub', participant_path(pub_id: @pub.id) %>
       <% else %>
-        <%= link_to 'Final Scores', game_participant_path %>
+        <%= link_to 'Final Scores', scorecard_game_path(@game) %>
       <%end%>
+
+      <%= simple_form_for [@participant, @pub_score] do |form| %>
+      <%= form.input :score %>
+      <%= form.input :pub_id, as: :hidden%>
+      <%= form.submit %>
+      <% end %>
+    </div>
+
+
     </div>
     <%# <div class="form-group"> %>
       <%# <%= form.submit "Next Pub", class: 'btn btn-primary' %>
     <%# </div> %>
   <%# <% end %>
+      </div>
+      <div class="container-courses">
+        <%# <%= link_to 'Save Score', game_participant_path(score: @pub.score)%> %>
       </div>
 </div>
