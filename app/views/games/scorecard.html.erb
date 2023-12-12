@@ -3,11 +3,18 @@
     <div class="container-scores">
       <h2><%= @game.course.name %></h2>
         <%= @game %>
-       <p> <%= @pubs.each do |pub|  %> </p>
+       <p> <% @pubs.each do |pub|  %> </p>
       <div class="card-pub">
-        <p class="pariticipant-name"><%= current_user.first_name %>  </>
+        <p class="pariticipant-name"><%= current_user.first_name  %></p>
         <p class="pub-name"><%= pub.name  %></p>
-        <%# <p class="pub-score">Your score: <%= @pub_score.score %></p> %>
+        <% raise %>
+        <%# <p class="pub-score">Your score: <%= @pub_score.score%> </p>  %>
         <p class="pub-strokes">Par: <%= pub.strokes %></p>
         <%end%>
       </div>
+      <div class="container-participants">
+        <% @participants.each do |participant|%>
+        <%= participant.user.first_name %>
+        <%end%>
+      </div>
+    </div>
