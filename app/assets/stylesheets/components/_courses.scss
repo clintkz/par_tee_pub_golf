@@ -2,31 +2,23 @@
 .courses-heading {
   font-size: 24px;
   margin-bottom: 5px;
+  color: white;
+  background-color: rgb(231, 136, 3);
 }
 
 .courses-subheading {
   font-size: 18px;
+  color: white;
+  background-color: rgb(231, 136, 3)
 }
 
-// .courses-container {
-//   border: 1px solid #ccc;
-//   padding: 15px;
-//   margin-bottom: 20px;
-// }
+/* Apply styles for smaller screens (e.g., mobile devices) */
+@media (max-width: 480px) {
+  .courses-heading {
+    font-size: 20px; /* Adjust font size for mobile screens */
+  }
 
-// .course-info {
-//   font-size: 16px;
-// }
-
-// .course-name {
-//   font-weight: bold;
-//   margin-bottom: 5px;
-// }
-
-// .course-location {
-//   margin-bottom: 5px;
-// }
-
-// .course-pubs {
-//   color: #666;
-// }
+  .courses-subheading {
+    font-size: 16px; /* Adjust font size for mobile screens */
+  }
+}
