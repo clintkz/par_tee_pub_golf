@@ -46,6 +46,7 @@ class GamesController < ApplicationController
 
   def scorecard
     @game = Game.find(params[:id])
+    @participants = @game.participants
     @pubs = @game.course.pubs
   end
 
