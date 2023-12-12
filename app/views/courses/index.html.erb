@@ -1,7 +1,6 @@
 
 <div class="container-courses">
 
-  <div class="container-parent">
       <h5>Welcome! Choose from the courses below to get started:</h5>
 
     <% @courses.each do |course| %>
@@ -15,6 +14,6 @@
         </div>
       </div>
     <% end %>
-  </div>
     <%= link_to "Rate this app", ratings_path, class: "btn btn-primary" %>
+  </div>
 </div>

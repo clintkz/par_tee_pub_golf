@@ -2,13 +2,14 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Courier, sans-serif;
+  font-family: Inconsolata, sans-serif;
   // color: #333;
   // background-color: rgb(236, 233, 233);
-  background-color: rgb(231, 136, 3);
-  color: gray;
-  border-radius: 20px;
+  background-color: white;
+  color: rgb(89, 88, 88);
+  border-radius: 3px;
 }
+
 .container-pubs {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -25,20 +26,30 @@
 }
 
 .container {
-width: 600px;
-font-family: Courier;
-height: 900px;
+// width: 100%; /* Adjusted width to 100% for mobile screens */
+font-family: Inconsolata;
+// height: 900px;
 margin: 0 auto;
 margin-left: 20px;
 border-radius: 3px;
-// display: flex;
 padding: 2px 16px;
-background-color: rgb(231, 136, 3);
+background-color: rgb(89, 88, 88);
+// background-color: rgb(231, 136, 3);
 p {
-  color: gray;
+  color: rgb(89, 88, 88);
 }
 }
 
-// .container-large .left-aligned-text {
-// text-align: left;
-// }
+/* Apply styles for smaller screens (e.g., mobile devices) */
+@media (max-width: 600px) {
+  .container-courses {
+    max-width: 100%;
+    border-radius: 0; /* Optional: Remove border-radius for mobile screens */
+  }
+
+  .container-map,
+  .container {
+    width: 100%;
+    margin-left: 0; /* Remove left margin for mobile screens */
+  }
+}

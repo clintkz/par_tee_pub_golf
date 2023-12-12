@@ -8,6 +8,9 @@
   <ul>
     <% @created_games.each do |game| %>
       <li><%= link_to game.course.name, game_path(game), class: 'btn btn-primary' %> </li>
+       <%= link_to chatroom_path(game.chatroom) do %>
+      <div class="btn btn-primary">Chat</div>
+      <% end %>
     <% end %>
   </ul>
 <div class="card-heading">
@@ -15,6 +18,9 @@
   <ul>
     <% @invited_games.each do |game| %>
       <li><%= link_to game.course.name, game_path(game), class: 'btn btn-primary'%> </li>
+       <%= link_to chatroom_path(game.chatroom) do %>
+      <div class="btn btn-primary">Chat</div>
+      <% end %>
     <% end %>
   </ul>
 </div>
