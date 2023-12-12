@@ -1,9 +1,10 @@
 <div class="container-courses">
   <div class="container-parent">
-  <div class="header-section">
-    <h3 class="courses-heading">Hi, <%= current_user.email %></h3>
-    <p class="courses-subheading">Please see a list of your available pubs in this course:</p>
+    <div class="header-section">
+      <h3 class="courses-heading">Hi, <%= current_user.email %></h3>
+      <p class="courses-subheading">Please see a list of your available pubs in this course:</p>
   </div>
+    </div>
 
   <div class="card-heading">
       <strong>
@@ -14,15 +15,15 @@
 
     <% @pubs.each do |pub| %>
     <%#= pub.id %>
-      <div class="card-subheading">
+     <!-- <div class="card-subheading">-->
         <p class="pub-name"><%= link_to pub.name, pub_path(pub.id) %></p>
-      </div>
-    <div class="card-pub">
+      <!--</div>-->
+      <div class="card-pub">
         <p class="pub-address"><%= pub.address %></p>
         <p class="pub-drink"><%= pub.drink %></p>
       </div>
     <% end %>
 
-  <%= link_to "Create Game", new_course_game_path(@course), class: "btn btn-primary" %>
+    <%= link_to "Create Game", new_course_game_path(@course), class: "btn btn-primary" %>
   </div>
 </div>
