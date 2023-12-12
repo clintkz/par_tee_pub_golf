@@ -19,9 +19,9 @@ class PubScoresController < ApplicationController
     @pub_score.participant = @participant
     @pub_score.save
       if @pub_score.pub == @pubs.last
-        redirect_to scorecard_game_path(@game)
+        redirect_to scorecard_game_path(@game)#, notice: 'Score was successfully saved.'
       else
-    redirect_to participant_path(@participant, pub_id: @pub_score.pub.id)
+    redirect_to participant_path(@participant, pub_id: @pub_score.pub.id)#, alert: 'Failed to save score.'
       end
   end
 
@@ -35,14 +35,14 @@ class PubScoresController < ApplicationController
     params.require(:pub_score).permit(:score, :pub_id)
   end
 
-  def create
-    @pub_score = PubScore.new(pub_score_params)
-    if @pub_score.save
-      redirect_to participant_path(@pub_score.participant), notice: 'Score was successfully saved.'
-    else
-      redirect_to participant_path(@pub_score.participant), alert: 'Failed to save score.'
-    end
-  end
+  # def create
+  #   @pub_score = PubScore.new(pub_score_params)
+  #   if @pub_score.save
+  #     redirect_to participant_path(@pub_score.participant), notice: 'Score was successfully saved.'
+  #   else
+  #     redirect_to participant_path(@pub_score.participant), alert: 'Failed to save score.'
+  #   end
+  # end
 
   def pub_score_params
     params.require(:pub_score).permit(:score, :pub_id, :participant_id)

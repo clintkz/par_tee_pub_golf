@@ -7,7 +7,7 @@
       <div class="card-pub">
         <p class="pariticipant-name"><%= current_user.first_name  %></p>
         <p class="pub-name"><%= pub.name  %></p>
-        <% raise %>
+        <%# <% raise %> %>
         <%# <p class="pub-score">Your score: <%= @pub_score.score%> </p>  %>
         <p class="pub-strokes">Par: <%= pub.strokes %></p>
         <%end%>
@@ -18,3 +18,60 @@
         <%end%>
       </div>
     </div>
+
+
+
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="total-score">
+        <h3>Total Scores:</h3>
+        <% @game.participants.each do |participant| %>
+          <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+      <h1>Scorecard:</h1>
+      <% @pubs.each do |pub| %>
+        <h3><%= pub.name %></h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Participant</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @game.participants.each do |participant| %>
+              <% if participant.status == 'accepted' || participant.user_id == @game.user_id %>
+              <tr>
+                <td><%= participant.user.first_name %></td>
+                <td>
+                  <% score = participant.pub_scores.find_or_initialize_by(pub: pub) %>
+                  <% if participant.user == current_user %>
+                    <% if score.new_record? %>
+                      <%= form_with(model: [participant, score], local: true, class: 'form-inline') do |form| %>
+                        <%= form.number_field :score, class: 'form-control' %>
+                        <%= form.hidden_field :participant_id %>
+                        <%= form.hidden_field :pub_id, value: pub.id %>
+                        <%# <%= form.submit "Save", class: 'btn btn-primary ml-2' %> %>
+                      <% end %>
+                    <% else %>
+                      <%= score.score %>
+                    <% end %>
+                  <% else %>
+                    <%= score&.score || "No Score" %>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
