@@ -1,4 +1,4 @@
 class PubScore < ApplicationRecord
-  belongs_to :pub
   belongs_to :participant
+  belongs_to :pub
 end

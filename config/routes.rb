@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   end
 
   resources :participants, only: [:show] do
-    resources :pub_scores, only: [:create]
+    member do
+      post :save_score
+    end
+  end
+
+  resources :participants do
+    resources :pub_scores, only: [:create, :update]
   end
 
   # resources :chatrooms, only: [:show]
