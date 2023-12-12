@@ -8,7 +8,7 @@
   <ul>
     <% @participants.each do |participant| %>
       <li>
-        <%= participant.user.email %>:
+        <%= participant.user.first_name %>:
           <% if participant.user_id == @game.user_id %>
               Organizer
             <% elsif participant.user == current_user %>
