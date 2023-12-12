@@ -34,7 +34,7 @@ class PubScoresController < ApplicationController
     # params.permit(:game_id, :participant_id, :pub_id, :score)
     params.require(:pub_score).permit(:score, :pub_id)
   end
-  
+
   def create
     @pub_score = PubScore.new(pub_score_params)
     if @pub_score.save
