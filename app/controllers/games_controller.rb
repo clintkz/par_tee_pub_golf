@@ -20,6 +20,8 @@ class GamesController < ApplicationController
       puts "redirecting to games page"
       redirect_to game_path(@game), notice: 'Game was successfully created.'
     else
+      @users = User.all # Ensure @users is set for the form
+      flash.now[:alert] = @game.errors.full_messages.to_sentence
       render :new
     end
   end
