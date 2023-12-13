@@ -36,11 +36,16 @@ class GamesController < ApplicationController
   end
 
   def index
-    @created_games = Game.where(user_id: current_user.id) # Games the user has created
-    @invited_games = Game.joins(:participants).where(participants: { user_id: current_user.id }) # Games the user is invited to
+    @created_games = Game.where(user_id: current_user.id).where.not(status: 'started')
 
-    # Ensure there are no duplicates between created and invited games
-    @invited_games = @invited_games.where.not(user_id: current_user.id)
+    @invited_games = Game.joins(:participants)
+                         .where(participants: { user_id: current_user.id }) # Games the user is invited to
+                         .where.not(user_id: current_user.id)
+                         .where.not(status: 'started')
+
+    @started_games = Game.where(status: 'started')
+                         .where(id: Game.joins(:participants)
+                         .where(participants: { user_id: current_user.id }).pluck(:id))
   end
 
   def start
