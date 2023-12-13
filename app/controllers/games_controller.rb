@@ -13,9 +13,13 @@ class GamesController < ApplicationController
     @game.chatroom = Chatroom.create(name:@course.name)
 
     if @game.save
-      # Add participants to the game
-      # game_params[:user_ids].each do |user_id|
-      #   Participant.create(user_id: user_id, game: @game) unless user_id.nil?
+      # Automatically add the organizer as a participant
+      Participant.create(user_id: current_user.id, game: @game)
+
+      # Add other participants to the game
+      # user_ids = game_params[:user_ids].reject(&:blank?)
+      # user_ids.each do |user_id|
+      #   Participant.create(user_id: user_id, game: @game) unless user_id == current_user.id
       # end
       puts "redirecting to games page"
       redirect_to game_path(@game), notice: 'Game was successfully created.'

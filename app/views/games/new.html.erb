@@ -20,10 +20,12 @@
       <div class="form-group">
         <label class='form-label'>Participants</label>
         <% @users.each do |user| %>
-          <div class="form-check">
-            <%= check_box_tag 'game[user_ids][]', user.id, @game.user_ids.include?(user.id), id: dom_id(user), class: 'form-check-input' %>
-            <%= label_tag dom_id(user), user.full_name, class: 'form-check-label' %>
-          </div>
+          <% unless user == current_user %>
+            <div class="form-check">
+              <%= check_box_tag 'game[user_ids][]', user.id, @game.user_ids.include?(user.id), id: dom_id(user), class: 'form-check-input' %>
+              <%= label_tag dom_id(user), user.full_name, class: 'form-check-label' %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
