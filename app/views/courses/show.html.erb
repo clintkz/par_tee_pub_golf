@@ -8,8 +8,8 @@
 
   <div class="card-heading">
       <strong>
-      <p class="course-name"><%= @course.name %></p>
-      <p class="course-location"><%= @course.location %></p>
+      <p class="course-name">Course:<%= @course.name %></p>
+      <p class="course-location">Location:<%= @course.location %></p>
       <p class="course-pubs"><%= @course.number_of_pubs %> pubs available</p></strong>
   </div>
 
@@ -24,6 +24,8 @@
       </div>
     <% end %>
 
+<div class="d-grid gap-2">
     <%= link_to "Create Game", new_course_game_path(@course), class: "btn btn-primary" %>
+</div>
   </div>
 </div>

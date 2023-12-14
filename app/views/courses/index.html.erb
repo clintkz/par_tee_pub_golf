@@ -4,7 +4,7 @@
       <h5>Welcome! Choose from the courses below to get started:</h5>
 
     <% @courses.each do |course| %>
-         <p><%= link_to course.name, course_path(course) %></p>
+          <p><%= link_to course.name, course_path(course) %></p>
       <div class="card-map">
         <div style="width: 100%; height: 200px;"
           data-controller="map"
@@ -13,6 +13,8 @@
         </div>
       </div>
     <% end %>
+<div class="d-grid gap-2">
     <%= link_to "Rate this app", ratings_path, class: "btn btn-primary" %>
   </div>
+</div>
 </div>
