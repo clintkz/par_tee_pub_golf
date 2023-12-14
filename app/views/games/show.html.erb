@@ -1,9 +1,12 @@
 <div class="container-courses">
-  <!--<div class="container mt-4">-->
+  <div class="container-parent">
+  <div class="card-heading">
   <h1>Game Details</h1>
   <p>Course: <%= @game.course.name %></p>
   <p>Date and Time: <%= @game.date_time %></p>
+</div>
 
+<div class="card-heading">
   <h2>Participants</h2>
   <ul>
     <% @participants.each do |participant| %>
@@ -17,8 +20,8 @@
               <% elsif participant.status == 'declined' %>
                 Declined
               <% else %>
-                <%= button_to 'Accept', accept_game_participant_path(@game, participant), method: :patch, class: 'btn btn-success' %>
-                <%= button_to 'Decline', decline_game_participant_path(@game, participant), method: :patch, class: 'btn btn-danger' %>
+                <%= button_to 'Accept', accept_game_participant_path(@game, participant), method: :patch, class: "btn btn-primary" %>
+                <%= button_to 'Decline', decline_game_participant_path(@game, participant), method: :patch, class: "btn btn-primary" %>
               <% end %>
             <% else %>
               <%= participant.status || 'No Response' %>
@@ -34,16 +37,16 @@
     <% end %>
 
     <% if current_user.id == @game.user_id && @game.status != "started" %>
-      <%= button_to 'Start Game', start_game_path(@game), method: :patch, class: 'btn btn-success mb-2' %>
-      <%= link_to chatroom_path(@game.chatroom), class: 'btn btn-primary mb-2' do %>
+      <div class="d-grid gap-2"><%= button_to 'Start Game', start_game_path(@game), method: :patch, class: 'btn btn-success mb-2' %>
+      <%= link_to chatroom_path(@game.chatroom), class: 'btn btn-primary' do %>
         Chat
       <% end %>
     <% end %>
-
+</div>
     <% participant = @game.participants.find_by(user: current_user) %>
     <% if @game.status == "started" && (participant&.status == 'accepted' || current_user.id == @game.user_id) %>
       <%= button_to 'Tee-off', start_game_path(@game), method: :patch, class: 'btn btn-warning mb-2' %>
     <% end %>
   </ul>
-
+</div>
 </div>
