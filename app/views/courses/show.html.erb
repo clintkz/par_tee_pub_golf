@@ -1,15 +1,15 @@
 <div class="container-courses">
   <div class="container-parent">
     <div class="header-section">
-      <h3 class="courses-heading">Hi, <%= current_user.email %></h3>
+      <h3 class="courses-heading">Hi, <%= current_user.first_name %></h3>
       <p class="courses-subheading">Please see a list of your available pubs in this course:</p>
   </div>
     </div>
 
   <div class="card-heading">
       <strong>
-      <p class="course-name"><%= @course.name %></p>
-      <p class="course-location"><%= @course.location %></p>
+      <p class="course-name">Course:<%= @course.name %></p>
+      <p class="course-location">Location:<%= @course.location %></p>
       <p class="course-pubs"><%= @course.number_of_pubs %> pubs available</p></strong>
   </div>
 
@@ -24,6 +24,8 @@
       </div>
     <% end %>
 
+<div class="d-grid gap-2">
     <%= link_to "Create Game", new_course_game_path(@course), class: "btn btn-primary" %>
+</div>
   </div>
 </div>

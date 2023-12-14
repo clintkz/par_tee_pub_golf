@@ -6,8 +6,9 @@
   // color: #333;
   // background-color: rgb(236, 233, 233);
   background-color: white;
-  color: rgb(89, 88, 88);
+  color: black;
   border-radius: 3px;
+  overflow-y: auto;
 }
 
 .container-pubs {
@@ -17,11 +18,10 @@
 }
 
 .container-map {
-  width: 300px;
+  width: 480px;
   border: 1px solid red;
   // flex: 1;
   // position: sticky;
-
   border-radius: 3px;
 }
 
@@ -36,20 +36,22 @@ padding: 2px 16px;
 background-color: rgb(89, 88, 88);
 // background-color: rgb(231, 136, 3);
 p {
-  color: rgb(89, 88, 88);
+  color: black;
 }
 }
 
 /* Apply styles for smaller screens (e.g., mobile devices) */
-@media (max-width: 600px) {
-  .container-courses {
-    max-width: 100%;
-    border-radius: 0; /* Optional: Remove border-radius for mobile screens */
-  }
+// @media (max-width: 600px) {
+//   .container-courses {
+//     max-width: 100%;
+//     border-radius: 0; /* Optional: Remove border-radius for mobile screens */
+//   }
 
-  .container-map,
+  .container-map{
+    width: 100%; // Full width on small screens
+    margin-left: 0; // Adjust if necessary
+  }
   .container {
     width: 100%;
     margin-left: 0; /* Remove left margin for mobile screens */
   }
-}
