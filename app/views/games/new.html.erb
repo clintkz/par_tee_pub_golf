@@ -8,17 +8,39 @@
       <%= form.datetime_field :date_time, class: 'form-control' %>
     </div>
  </div>
- <div class="card-pub">
+
+ <%# <div class="card-pub">
     <div class="form-group">
       <%= form.label :participants, class: 'form-label' %>
-      <%= form.collection_select(:user_ids, @users, :id, :full_name, { include_blank: 'Select Participants' }, { multiple: true, class: 'form-control' }) %>
-    </div>
+      <%# <%= form.collection_select(:user_ids, @users, :id, :full_name, { include_blank: 'Select Participants' }, { multiple: true, class: 'form-control' })%>
+      <%# </div>
+  </div> %>
+
+    <div class="card-pub">
+      <div class="form-group">
+        <label class='form-label'>Participants</label>
+        <% @users.each do |user| %>
+          <% unless user == current_user %>
+            <div class="form-check">
+              <%= check_box_tag 'game[user_ids][]', user.id, @game.user_ids.include?(user.id), id: dom_id(user), class: 'form-check-input' %>
+              <%= label_tag dom_id(user), user.full_name, class: 'form-check-label' %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
 
-    <div class="form-group">
-      <%= form.submit "Create Game", class: 'btn btn-primary' %>
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
     </div>
   <% end %>
+
+
+  <div class="form-group">
+      <%= form.submit "Create Game", class: 'btn btn-primary' %>
+  </div>
+    <% end %>
   </div>
 </div>
 </div>
