@@ -33,17 +33,17 @@
       </li>
     <% end %>
 
-  <% if current_user.id == @game.user_id && @game.status != "started" %>
-    <%= button_to 'Start Game', start_game_path(@game), method: :patch %>
-    <%= link_to chatroom_path(@game.chatroom) do %>
-      <div class="btn btn-primary">Chat</div>
+    <% if current_user.id == @game.user_id && @game.status != "started" %>
+      <%= button_to 'Start Game', start_game_path(@game), method: :patch, class: 'btn btn-success mb-2' %>
+      <%= link_to chatroom_path(@game.chatroom), class: 'btn btn-primary mb-2' do %>
+        Chat
+      <% end %>
     <% end %>
-  <% end %>
 
-  <% participant = @game.participants.find_by(user: current_user) %>
-  <% if @game.status == "started" && participant&.status == 'accepted' || current_user.id == @game.user_id %>
-    <%= button_to 'Tee-off', start_game_path(@game), method: :patch %>
-  <% end %>
-
+    <% participant = @game.participants.find_by(user: current_user) %>
+    <% if @game.status == "started" && (participant&.status == 'accepted' || current_user.id == @game.user_id) %>
+      <%= button_to 'Tee-off', start_game_path(@game), method: :patch, class: 'btn btn-warning mb-2' %>
+    <% end %>
   </ul>
+
 </div>
