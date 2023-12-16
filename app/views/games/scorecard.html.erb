@@ -74,6 +74,7 @@
           <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
         <% end %>
       </div>
+      <%= link_to 'End Game', end_game_game_path(@game), data: { turbo_method: :patch}, class: 'btn btn-danger' %>
     </div>
   </div>
 </div>

@@ -1,10 +1,13 @@
 LOCATIONS = ["SW London", "Central London", "North London"]
 
+PubScore.destroy_all
+Participant.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
+Game.destroy_all
+Pub.destroy_all
 Course.destroy_all
 User.destroy_all
-Participant.destroy_all
-Pub.destroy_all
-Game.destroy_all
 
 
 # Define Courses and their Pubs
