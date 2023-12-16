@@ -36,16 +36,23 @@ class GamesController < ApplicationController
   end
 
   def index
-    @created_games = Game.where(user_id: current_user.id).where.not(status: 'started')
+    @created_games = Game.where(user_id: current_user.id, status: [nil, 'not_started'])
 
+    # Games where the current user is invited but not the creator, and not started
     @invited_games = Game.joins(:participants)
-                         .where(participants: { user_id: current_user.id }) # Games the user is invited to
-                         .where.not(user_id: current_user.id)
-                         .where.not(status: 'started')
+                         .where(participants: { user_id: current_user.id })
+                         .where.not(id: @created_games.pluck(:id))
+                         .where(status: nil)
 
-    @started_games = Game.where(status: 'started')
-                         .where(id: Game.joins(:participants)
-                         .where(participants: { user_id: current_user.id }).pluck(:id))
+    # Collecting game IDs where the current user is either the creator or a participant
+    created_game_ids = Game.where(user_id: current_user.id, status: 'started').pluck(:id)
+    participant_game_ids = Game.joins(:participants)
+                               .where(participants: { user_id: current_user.id }, status: 'started')
+                               .pluck(:id)
+
+    # Combining the game IDs and fetching the games
+    all_game_ids = created_game_ids | participant_game_ids
+    @started_games = Game.where(id: all_game_ids)
   end
 
   def start
