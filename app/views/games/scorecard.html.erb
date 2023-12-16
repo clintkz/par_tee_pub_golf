@@ -128,14 +128,4 @@
   </table>
 </div>
 
- <div class="row mt-4">
-    <div class="col-12">
-      <div class="total-score">
-        <h3>Total Scores:</h3>
-        <% @game.participants.each do |participant| %>
-          <p><%= participant.user.first_name%>: <%= participant.total_score %></p>
-          <% end %>
-       </div>
-    </div>
-  </div>
-</div>
+
