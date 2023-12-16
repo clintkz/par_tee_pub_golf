@@ -1,8 +1,7 @@
 <div class="container-courses">
   <div class="container-parent">
     <h3>My Games</h3>
-
-    <div class="card mb-4">
+    <div class="card-pub mb-4">
       <div class="card-header">
         <h4>Games I've Created</h4>
       </div>
@@ -14,34 +13,31 @@
           </li>
         <% end %>
       </ul>
-    </div>
-
-    <div class="card mb-4">
-      <div class="card-header">
-        <h4>Games I've Been Invited To</h4>
+      <div class="card-pub mb-4">
+        <div class="card-header">
+          <h4>Games I've Been Invited To</h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @invited_games.each do |game| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <%= link_to game.course.name, game_path(game) %>
+              <%= link_to 'Chat', chatroom_path(game.chatroom), class: "btn btn-primary" %>
+            </li>
+          <% end %>
+        </ul>
       </div>
-      <ul class="list-group list-group-flush">
-        <% @invited_games.each do |game| %>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <%= link_to game.course.name, game_path(game) %>
-            <%= link_to 'Chat', chatroom_path(game.chatroom), class: "btn btn-primary" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="card mb-4">
-      <div class="card-header">
-        <h4>Games Underway</h4>
+      <div class="card-pub mb-4">
+        <div class="card-header">
+          <h4>Games Underway</h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @started_games.each do |game| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <%= link_to game.course.name, game_path(game) %>
+              <%= link_to 'Chat', chatroom_path(game.chatroom), class: "btn btn-primary" %>
+            </li>
+          <% end %>
+        </ul>
       </div>
-      <ul class="list-group list-group-flush">
-        <% @started_games.each do |game| %>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <%= link_to game.course.name, game_path(game) %>
-            <%= link_to 'Chat', chatroom_path(game.chatroom), class: "btn btn-primary" %>
-          </li>
-        <% end %>
-      </ul>
     </div>
   </div>
-</div>
