@@ -1,20 +1,22 @@
 <div class="container-courses">
   <div class="container-parent">
-  <div class="card-heading">
-  <h1>Game Details</h1>
-  <p>Course: <%= @game.course.name %></p>
-  <p>Date and Time: <%= @game.date_time %></p>
-</div>
+    <div class="card-heading">
+      <h1>Game Details</h1>
+      <p>Course: <%= @game.course.name %></p>
+      <p>Date and Time: <%= @game.date_time %></p>
+    </div>
 
-<div class="card-heading">
-  <h2>Participants</h2>
-  <ul>
-    <% @participants.each do |participant| %>
-      <li>
-        <%= participant.user.first_name %>:
-          <% if participant.user_id == @game.user_id %>
+    <div class="card-heading">
+      <h2>Participants</h2>
+      <ul>
+        <% @participants.each do |participant| %>
+          <li>
+            <%= participant.user.first_name %>:
+            <% if participant.user_id == @game.user_id %>
               Organizer
             <% elsif participant.user == current_user %>
+
+              <!-- Participant's status and arrival status -->
               <% if participant.status == 'accepted' %>
                 Accepted
               <% elsif participant.status == 'declined' %>
@@ -23,31 +25,50 @@
                 <%= button_to 'Accept', accept_game_participant_path(@game, participant), method: :patch, class: "btn btn-primary" %>
                 <%= button_to 'Decline', decline_game_participant_path(@game, participant), method: :patch, class: "btn btn-primary" %>
               <% end %>
+              - Arrived: <%= participant.arrived ? 'Yes' : 'No' %>
+
+              <!-- Display chat if participant has arrived -->
+              <% if participant.arrived %>
+                <%= link_to chatroom_path(@game.chatroom), class: 'btn btn-primary' do %>
+                  Chat
+                <% end %>
+              <% end %>
             <% else %>
               <%= participant.status || 'No Response' %>
+
+              <!-- Display chat for other participants who have arrived -->
+              <% if participant.arrived %>
+                <%= link_to chatroom_path(@game.chatroom), class: 'btn btn-primary' do %>
+                  Chat
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <!-- Mark as Arrived button -->
+            <% if (participant.user == current_user && (participant.status == 'accepted' || current_user.id == @game.user_id)) %>
+              <%= button_to 'Mark as Arrived', mark_as_arrived_game_participant_path(@game, participant), method: :patch, class: 'btn btn-primary' unless participant.arrived %>
+            <% end %>
+          </li>
+        <% end %>
+
+        <!-- Start Game and Tee-off buttons -->
+        <% if (participant = @game.participants.find_by(user: current_user)) && participant.arrived? %>
+          <% if current_user.id == @game.user_id && @game.status != "started" %>
+            <li class="d-grid gap-2">
+              <%= button_to 'Start Game', start_game_path(@game), method: :patch, class: 'btn btn-success mb-2' %>
+              <%= link_to chatroom_path(@game.chatroom), class: 'btn btn-primary' do %>
+                Chat
+              <% end %>
+            </li>
           <% end %>
-
-        <% if participant.status == 'accepted' || participant.user_id == @game.user_id %>
-          - Arrived: <%= participant.arrived ? 'Yes' : 'No' %>
         <% end %>
-        <% if (participant.user == current_user && (participant.status == 'accepted' || current_user.id == @game.user_id)) %>
-          <%= button_to 'Mark as Arrived', mark_as_arrived_game_participant_path(@game, participant), method: :patch, class: 'btn btn-primary' unless participant.arrived %>
-        <% end %>
-      </li>
-    <% end %>
 
-  <% if (participant = @game.participants.find_by(user: current_user)) && participant.arrived? %>
-    <% if current_user.id == @game.user_id && @game.status != "started" %>
-      <div class="d-grid gap-2"><%= button_to 'Start Game', start_game_path(@game), method: :patch, class: 'btn btn-success mb-2' %>
-      <%= link_to chatroom_path(@game.chatroom), class: 'btn btn-primary' do %>
-        Chat
-      <% end %>
-    <% end %>
-</div>
-    <% participant = @game.participants.find_by(user: current_user) %>
-    <% if @game.status == "started" && (participant&.status == 'accepted' || current_user.id == @game.user_id) %>
-      <%= button_to 'Tee-off', start_game_path(@game), method: :patch, class: 'btn btn-warning mb-2' %>
-    <% end %>
-  </ul>
-</div>
+        <% if @game.status == "started" && (participant&.status == 'accepted' || current_user.id == @game.user_id) %>
+          <li>
+            <%= button_to 'Tee-off', start_game_path(@game), method: :patch, class: 'btn btn-warning mb-2' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
