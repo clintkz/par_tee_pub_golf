@@ -5,14 +5,22 @@
 .card-heading {
   width: 100%; /* Set width to 100% for mobile screens */
   margin-bottom: 10px;
-  border-radius: 3px;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: black;
 }
 
 .card-pub {
   background: rgb(244, 243, 243);
-  padding: 4px;
+  padding: 14px;
+  h6 {
+    color: #04843b;
+  }
+}
+
+.card-pub-link {
+  color: #04843b;
+  font-weight: bold;
 }
 
 .card-subheading {
@@ -26,7 +34,7 @@
 }
 
 .card-map > div {
-  border-radius: 3px;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -43,4 +51,19 @@
   .card-heading {
     width: 100%;
   }
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
