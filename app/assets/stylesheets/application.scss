@@ -11,8 +11,22 @@
 @import "components/index";
 @import "pages/index";
 
-body, a{
-  font-family: "courier";
+
+body,a{
+  font-family: "inconsolata";
   color: black;
   text-decoration: none;
+}
+
+.background{
+  background-image: url("background.jpg");
+  background-size: cover;
+  // background-size: contain; /* or your preferred size */
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display:none;
 }
