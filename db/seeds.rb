@@ -53,3 +53,5 @@ users.each do|user|
   User.create!(user)
 end
 puts "#{User.count} users created"
+
+
