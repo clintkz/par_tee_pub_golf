@@ -2,6 +2,7 @@
 
     <div class="container-scores card-pub">
       <h2>Congratulations on completing the <%= @game.course.name %></h2>
+<<<<<<< HEAD
         <%# <%= @game %>
        <%# <p> <% @pubs.each do |pub|  </p>  %>
       <%# <div class="card-pub"> %>
@@ -75,6 +76,19 @@
         <% @pubs.each do |pub|%>
       <td scope="col"><%= pub.name %></td>
       <%end%>
+=======
+        <p class="participant-name"><%= current_user.first_name  %></p>
+    </div>
+
+<div class="container-scores card-pub">
+  <table class="table card-pub table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Player</th>
+        <% @pubs.each do |pub| %>
+          <th scope="col"><%= pub.name %></th>
+        <% end %>
+>>>>>>> master
       </tr>
       <tr>
         <td scope="col">Pub Drink</td>
@@ -88,6 +102,7 @@
       <td scope="col"><%= pub.strokes %> </td>
         <%end%>
       </tr>
+<<<<<<< HEAD
       <tr>
         <%@pubs.each do |pub|%>
           <% @participants.each do |participant| %>
@@ -126,4 +141,26 @@
       <%# <%end %>
     <%# </tr> %>
   </table>
+=======
+    </thead>
+    <tbody>
+      <% @participants.each do |participant| %>
+        <tr>
+          <td><%= participant.user.first_name %></td>
+          <% @pubs.each do |pub| %>
+            <% score = participant.pub_scores.find_by(pub: pub) %>
+            <td><%= score&.score || "-" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+ <div class="card-pub">
+    <h6>Total Scores:</h6>
+    <% @game.participants.each do |participant| %>
+      <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
+    <% end %>
+>>>>>>> master
 </div>
