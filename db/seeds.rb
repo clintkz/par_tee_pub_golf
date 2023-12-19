@@ -1,10 +1,10 @@
 LOCATIONS = ["SW London", "Central London", "North London"]
 
-Course.destroy_all
-User.destroy_all
-Participant.destroy_all
-Pub.destroy_all
-Game.destroy_all
+# Course.destroy_all
+# User.destroy_all
+# Participant.destroy_all
+# Pub.destroy_all
+# Game.destroy_all
 
 
 # Define Courses and their Pubs
@@ -34,6 +34,7 @@ courses.each do |course_name, pubs|
       address: pub_info[:address],
       drink: pub_info[:drink],
       strokes: pub_info[:strokes],
+      rules: pub_info[:rules],
       course: course
     )
     puts "#{Pub.last.name} created"
@@ -53,5 +54,3 @@ users.each do|user|
   User.create!(user)
 end
 puts "#{User.count} users created"
-
-
