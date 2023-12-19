@@ -8,11 +8,15 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: black;
+  h4 {
+    color: #04843b;
+    font-weight: bolder ;
+  }
 }
 
 .card-pub {
-  background: rgb(244, 243, 243);
-  padding: 14px;
+  background: rgba(244, 243, 243, 0.767);
+  padding: 4px;
   h6 {
     color: #04843b;
   }
@@ -23,6 +27,9 @@
   font-weight: bold;
 }
 
+.card-nav-link {
+  color: white;
+}
 .card-subheading {
   background: white;
   padding: 4px;
@@ -39,7 +46,8 @@
 }
 
 .card-heading {
-  background: rgb(238, 238, 238);
+  background: rgba(238, 238, 238, 0.681);
+  // background: (244, 243, 243, 0.767);
   padding: 4px;
 }
 
