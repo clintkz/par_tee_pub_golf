@@ -5,13 +5,21 @@
 <div class="container-courses">
   <h2>You're playing the <strong><%= @course.name %></strong></h2>
    <!-- The start iof the rotating card -->
-      <div class="card-pub">
-        <h6 class="pub-name"><%= @pub.name  %></h6>
-        <hr>
-        <p class="pub-address">Addresss: <%= @pub.address %></p>
-        <p class="pub-drink">Drink: <%= @pub.drink %></p>
-        <p class="pub-strokes">Par: <%= @pub.strokes %></p>
-        <p class="pub-rules"> Click here for this holes rules </p>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="card-pub">
+            <h6 class="pub-name"><%= @pub.name  %></h6>
+            <hr>
+            <p class="pub-address">Addresss: <%= @pub.address %></p>
+            <p class="pub-drink">Drink: <%= @pub.drink %></p>
+            <p class="pub-strokes">Par: <%= @pub.strokes %></p>
+            <p class="pub-rules"> Click here for this holes rules </p>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>Click here for the pub rules</p>
+          <p><%= @pub.rules %> </p>
+        </div>
       </div>
 
       <div class="container-courses">
@@ -27,5 +35,4 @@
         <%= form.button :submit, "Submit Score", class: "btn btn-primary" %>
         <% end %>
       </div>
-</div>
 </div>
