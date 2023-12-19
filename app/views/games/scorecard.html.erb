@@ -1,14 +1,14 @@
-<h1>Scorecard</h1>
+<%# <h1>Scorecard</h1> %>
 
-    <div class="container-scores">
-      <h2><%= @game.course.name %></h2>
+    <div class="container-scores card-pub">
+      <h2>Congratulations on completing the <%= @game.course.name %></h2>
         <%# <%= @game %>
        <%# <p> <% @pubs.each do |pub|  </p>  %>
       <%# <div class="card-pub"> %>
-        <p class="pariticipant-name"><%= current_user.first_name  %></p>
+        <p class="participant-name"><%= current_user.first_name  %></p>
         <%# <p class="pub-name"><%= pub.name </p>  %>
         <%# <% raise %>
-        <%# <p class="pub-score">Your score: <%= @pub_score.score%> </p>
+        <%# <p class="pub-score">Your score: <%= @pub_score.score </p> %>
         <%# <p class="pub-strokes">Par: <%= pub.strokes</p> %>
         <%# <%end%>
       <%# </div> %>
@@ -22,12 +22,12 @@
 
 
 
-
+<!--
 <div class="row mt-4">
     <div class="col-12">
       <h1>Scorecard:</h1>
-      <% @pubs.each do |pub| %>
-        <h3><%= pub.name %></h3>
+      <%# @pubs.each do |pub| %>-->
+<!--        <h3><%#= pub.name %></h3>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -36,44 +36,94 @@
             </tr>
           </thead>
           <tbody>
-            <% @game.participants.each do |participant| %>
-              <% if participant.status == 'accepted' || participant.user_id == @game.user_id %>
-              <tr>
-                <td><%= participant.user.first_name %></td>
+            <%# @game.participants.each do |participant| %>-->
+              <%# if participant.status == 'accepted' || participant.user_id == @game.user_id %>
+<!--              <tr>
+                <td><%#= participant.user.first_name %></td>
                 <td>
-                  <% score = participant.pub_scores.find_or_initialize_by(pub: pub) %>
-                  <% if participant.user == current_user %>
-                    <% if score.new_record? %>
-                      <%= form_with(model: [participant, score], local: true, class: 'form-inline') do |form| %>
-                        <%= form.number_field :score, class: 'form-control' %>
-                        <%= form.hidden_field :participant_id %>
-                        <%= form.hidden_field :pub_id, value: pub.id %>
-                        <%# <%= form.submit "Save", class: 'btn btn-primary ml-2' %> %>
-                      <% end %>
-                    <% else %>
-                      <%= score.score %>
-                    <% end %>
-                  <% else %>
-                    <%= score&.score || "No Score" %>
-                  <% end %>
-                </td>
+                  <%# score = participant.pub_scores.find_or_initialize_by(pub: pub) %>-->
+                  <%# if participant.user == current_user %>
+                    <%# if score.new_record? %>
+                      <%#= form_with(model: [participant, score], local: true, class: 'form-inline') do |form| %>
+                        <%#= form.number_field :score, class: 'form-control' %>
+                        <%#= form.hidden_field :participant_id %>
+                        <%#= form.hidden_field :pub_id, value: pub.id %>
+                        <%#= form.submit "Save", class: 'btn btn-primary ml-2' %>
+                      <%# end %>
+                    <%# else %>
+                      <%#= score.score %>
+                    <%# end %>
+                  <%# else %>
+                    <%#= score&.score || "No Score" %>
+                  <%# end %>
+<!--                </td>
               </tr>
-              <% end %>
-            <% end %>
-          </tbody>
+              <%# end %>-->
+            <%# end %>
+<!--          </tbody>
         </table>
-      <% end %>
-    </div>
-  </div>
+      <%# end %>-->
+<!--    </div>
+  </div>-->
 
- <div class="row mt-4">
-    <div class="col-12">
-      <div class="total-score">
-        <h3>Total Scores:</h3>
-        <% @game.participants.each do |participant| %>
-          <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
-        <% end %>
-      </div>
-    </div>
-  </div>
+<div class="container-scorecard card-pub">
+  <table class="card-pub table-bordered">
+    <thead>
+    </thead>
+      <tr>
+        <td scope="col">Pub Name</td>
+        <% @pubs.each do |pub|%>
+      <td scope="col"><%= pub.name %></td>
+      <%end%>
+      </tr>
+      <tr>
+        <td scope="col">Pub Drink</td>
+        <% @pubs.each do |pub|%>
+      <td scope="col"><%=pub.drink %> </td>
+        <%end%>
+      </tr>
+      <tr>
+        <td scope="col">Par Score</td>
+        <% @pubs.each do |pub|%>
+      <td scope="col"><%= pub.strokes %> </td>
+        <%end%>
+      </tr>
+      <tr>
+        <%@pubs.each do |pub|%>
+          <% @participants.each do |participant| %>
+            <% score = participant.pub_scores.find_or_initialize_by(pub: pub)%>
+            <% if score.score.present? %>
+              <td scope="col"><%= participant.user.first_name %> </td>
+            <%  end %>
+          <%  end %>
+               <%  break %>
+        <%  end %>
+         <%@pubs.each do |pub|%>
+          <% @participants.each do |participant| %>
+            <% score = participant.pub_scores.find_or_initialize_by(pub: pub)%>
+            <% if score.score.present? %>
+              <td scope="col"><%= score.score %> </td>
+            <%  end %>
+          <%  end %>
+        <%  end %>
+      </tr>
+<!--      <tr>-->
+        <%#@pubs.each do |pub|%>
+          <%# @participants.each do |participant| %>
+            <%# if participant.total_score.present? %>
+<!--              <td scope="col"><%#= participant.total_score %> </td>-->
+            <%#  end %>
+          <%#  end %>
+               <%#  break %>
+        <%#  end %>
+<!--      </tr>-->
+    <%# <tr>
+      <% @pubs.each do |pub| %>
+      <%# <% @game.participants.each do |participant| %>
+      <%# <% score = participant.pub_scores.find_or_initialize_by(pub: pub) %>
+      <%# <td scope="col"> <%= score.score</td> %>
+      <%# <%end%>
+      <%# <%end %>
+    <%# </tr> %>
+  </table>
 </div>
