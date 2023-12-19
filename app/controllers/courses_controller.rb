@@ -14,6 +14,11 @@ class CoursesController < ApplicationController
     end
   end
 
+  def home
+    # Code for the home action...
+    @courses = Course.all
+  end
+
   def show
     @course = Course.find(params[:id])
     @pubs = @course.pubs

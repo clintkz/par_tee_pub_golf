@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :courses,  only: [:show]
   get "/ratings", to: "pages#ratings"
 
-  root to: "courses#index"
+  root to: "courses#home"
 
   resources :pubs, only: [:show, :index]
 
