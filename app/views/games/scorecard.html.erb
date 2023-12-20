@@ -66,17 +66,7 @@
 <!--    </div>
   </div>-->
 
- <div class="row mt-4">
-    <div class="col-12">
-      <div class="total-score">
-        <h3>Total Scores:</h3>
-        <% @game.participants.each do |participant| %>
-          <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
-        <% end %>
-      </div>
-      <%= link_to 'End Game', end_game_game_path(@game), data: { turbo_method: :patch}, class: 'btn btn-danger' %>
-    </div>
-  </div>
+
 <div class="container-scorecard card-pub">
   <table class="card-pub table-bordered">
     <thead>
@@ -137,4 +127,9 @@
       <%# <%end %>
     <%# </tr> %>
   </table>
+
+  <div class="row mt-4">
+    <%= link_to 'End Game', end_game_game_path(@game), data: { turbo_method: :patch}, class: 'btn btn-danger' %>
+  </div>
+
 </div>
