@@ -1,98 +1,97 @@
 <div class="container-courses">
-<%= @user_first_name %>
-</div>
-
-<div class="container-courses">
+  <h2><%= @user_first_name %></h2>
   <h2><%= @course.name %></h2>
-   <%# <%= @pub.id %>
-   <%# <p> <%= @pub %> </p>
-      <div class="card-pub">
-        <p class="pub-name"><%= @pub.name  %></p>
-        <p class="pub-address">Addresss: <%= @pub.address %></p>
-        <p class="pub-drink">Drink: <%= @pub.drink %></p>
-        <p class="pub-strokes">Par: <%= @pub.strokes %></p>
-      </div>
-<%# <% end %>
-      <%# <div class="container">
+  <%# <%= @pub.id %>
+  <%# <p> <%= @pub %> <!--</p>-->
+  <div class="card-pub">
+    <h6 class="pub-name"><%= @pub.name  %></h6>
+    <p class="pub-address"><!--Addresss: --><%= @pub.address %></p>
+    <p class="pub-drink"><!--Drink:--> <%= @pub.drink %></p>
+    <p class="pub-strokes">Par: <%= @pub.strokes %></p>
+  </div>
+  <%# <% end %>
+  <%# <div class="container">
           <%= form_with(model: [@game, @participant], class: 'form') do |form| %>
-      <%# </div> %>
-    <div class="container-courses">
+    <%# </div> %>
+    <!-- <div class="container-courses">-->
+    <div class="card-pub">
       <% if @last_element == false %>
         <%= link_to 'Next Pub', participant_path(pub_id: @pub.id) %>
       <% else %>
         <%= link_to 'Final Scores', scorecard_game_path(@game) %>
       <%end%>
-
-      <%= simple_form_for [@participant, @pub_score] do |form| %>
-      <%= form.input :score %>
-      <%= form.input :pub_id, as: :hidden%>
-      <%= form.submit %>
-      <% end %>
+      
+  <%= simple_form_for [@participant, @pub_score] do |form| %>
+    <div style="display: flex; align-items: center;">
+      <div style="flex: 1;">
+        <%= form.input :score %>
+      </div>
+      <div>
+        <%= form.input :pub_id, as: :hidden %>
+        <%= form.submit class: 'btn btn-primary mb-2' %>
+      </div>
     </div>
+  <% end %>
+</div>
+
+
 
 
     <%# </div> %>
     <%# <div class="form-group"> %>
-      <%# <%= form.submit "Next Pub", class: 'btn btn-primary' %>
+    <%# <%= form.submit "Next Pub", class: 'btn btn-primary' %>
     <%# </div> %>
-  <%# <% end %>
-      <%# </div> %>
-      <%# <div class="container-courses"> %>
-        <%# <%= link_to 'Save Score', game_participant_path(score: @pub.score)%>
-      <%# </div> %>
-</div>
-
-<%# <div class="row mt-4">
+    <%# <% end %>
+    <%# </div> %>
+    <%# <div class="container-courses"> %>
+    <%# <%= link_to 'Save Score', game_participant_path(score: @pub.score)%>
+    <%# </div> %>
+    <%# <div class="row mt-4">
     <div class="col-12">
       <h1>Scorecard:</h1>
       <% @course.pubs.each do |pub| %>
-        <%# <h3><%= pub.name %> </h3>
-        <%# <table class="table table-striped"> %>
-          <%# <thead> %>
-            <%# <tr>
+      <%# <h3><%= pub.name %><!-- </h3>-->
+      <%# <table class="table table-striped"> %>
+      <%# <thead> %>
+      <%# <tr>
               <th>Participant</th>
               <th>Score</th>
             </tr> %>
-          <%# </thead>
+      <%# </thead>
           <tbody>
             <% @game.participants.each do |participant| %>
-              <%# <% if participant.status == 'accepted' || participant.user_id == @game.user_id %>
-              <%# <tr> %>
-                <%# <td><%= participant.user.first_name %></td>
-                <%# <td> %>
-                  <%# <% score = participant.pub_scores.find_or_initialize_by(pub: pub) %>
-                  <%# <% if participant.user == current_user %>
-                    <%# <% if score.new_record? %>
-                      <%# <%= form_with(model: [participant, score], local: true, class: 'form-inline') do |form| %>
-                        <%# <%= form.number_field :score, class: 'form-control' %>
-                        <%# <%= form.hidden_field :participant_id %>
-                        <%# <%= form.hidden_field :pub_id, value: pub.id %>
-                        <%# <%= form.submit "Save", class: 'btn btn-primary ml-2' %>
-                      <%# <% end %>
-                    <%# <% else %>
-                      <%# <%= score.score %>
-                    <%# <% end %>
-                  <%# <% else %>
-                    <%# <%= score&.score || "No Score" %>
-                  <%# <% end %>
-                <%# </td> %>
-              <%# </tr> %>
-              <%# <% end %>
-            <%# <% end %>
+        <%# <% if participant.status == 'accepted' || participant.user_id == @game.user_id %>
+        <%# <tr> %>
+        <%# <td><%= participant.user.first_name %><!--</td>-->
+        <%# <td> %>
+        <%# <% score = participant.pub_scores.find_or_initialize_by(pub: pub) %>
+        <%# <% if participant.user == current_user %>
+        <%# <% if score.new_record? %>
+        <%# <%= form_with(model: [participant, score], local: true, class: 'form-inline') do |form| %>
+          <%# <%= form.number_field :score, class: 'form-control' %>
+          <%# <%= form.hidden_field :participant_id %>
+          <%# <%= form.hidden_field :pub_id, value: pub.id %>
+          <%# <%= form.submit "Save", class: 'btn btn-primary ml-2' %>
+          <%# <% end %>
+          <%# <% else %>
+          <%# <%= score.score %>
+          <%# <% end %>
+          <%# <% else %>
+          <%# <%= score&.score || "No Score" %>
+          <%# <% end %>
+          <%# </td> %>
+          <%# </tr> %>
+          <%# <% end %>
+          <%# <% end %>
           <%# </tbody> %>
-        <%# </table> %>
-      <%# <% end %>
-    <%# </div> %>
-  <%# </div> %>
-
-  <div class="row mt-4">
-    <div class="col-12">
-      <div class="total-score">
-        <h3>Total Scores:</h3>
-        <% @game.participants.each do |participant| %>
-          <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+          <%# </table> %>
+          <%# <% end %>
+          <%# </div> %>
+          <%# </div> %>
+          <div class="card-pub">
+            <h6>Total Scores:</h6>
+            <% @game.participants.each do |participant| %>
+              <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
+            <% end %>
+          </div>
+          </div>
