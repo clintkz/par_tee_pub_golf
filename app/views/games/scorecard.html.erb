@@ -1,78 +1,56 @@
-<div class="container-courses">
-  <h1>Scorecard</h1>
-  <div class="container-scores">
-    <h2><%= @game.course.name %></h2>
-    <%# <%= @game %>
-    <%# <p> <% @pubs.each do |pub|  </p>  %>
-    <%# <div class="card-pub"> %>
-    <p class="participant-name"><%= current_user.first_name  %></p>
-    <%# <p class="pub-name"><%= pub.name </p>  %>
-    <%# <% raise %>
-    <%# <p class="pub-score">Your score: <%= @pub_score.score%> </p>
-  <%# <p class="pub-strokes">Par: <%= pub.strokes</p> %>
-  <%# <%end%>
-  <%# </div> %>
-  <%# <div class="container-participants"> %>
-  <%# <% @participants.each do |participant|%>
-    <%# <%= participant.user.first_name %>
-    <%# <%end%>
-    <%# </div> %>
-  </div>
-  <div class="row mt-4">
-    <div class="col-12">
-      <h1>Scorecard:</h1>
-      <% @pubs.each do |pub| %>
-        <h3><%= pub.name %></h3>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Participant</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @game.participants.each do |participant| %>
-              <% if participant.status == 'accepted' || participant.user_id == @game.user_id %>
-                <tr>
-                  <td><%= participant.user.first_name %></td>
-                  <td>
-                    <% score = participant.pub_scores.find_or_initialize_by(pub: pub) %>
-                    <% if participant.user == current_user %>
-                      <% if score.new_record? %>
-                        <%= form_with(model: [participant, score], local: true, class: 'form-inline') do |form| %>
-                          <%= form.number_field :score, class: 'form-control' %>
-                          <%= form.hidden_field :participant_id %>
-                          <%= form.hidden_field :pub_id, value: pub.id %>
-                          <%# <%= form.submit "Save", class: 'btn btn-primary ml-2' %> %>
-                        <% end %>
-                      <% else %>
-                        <%= score.score %>
-                      <% end %>
-                    <% else %>
-                      <%= score&.score || "No Score" %>
-                    <% end %>
-                  </td>
-                </tr>
-              <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      <% end %>
+<%# <h1>Scorecard</h1> %>
+
+    <div class="container-scores card-pub">
+      <h2>Congratulations on completing the <%= @game.course.name %></h2>
+        <p class="participant-name"><%= current_user.first_name  %></p>
     </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-12">
-      <div class="total-score">
-        <h3>Total Scores:</h3>
-        <% @game.participants.each do |participant| %>
-          <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
+
+<div class="container-scores card-pub">
+  <table class="table card-pub table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Player</th>
+        <% @pubs.each do |pub| %>
+          <th scope="col"><%= pub.name %></th>
         <% end %>
       </div>
-        <div class="row mt-4">
-          <%= link_to 'End Game', end_game_game_path(@game), data: { turbo_method: :patch}, class: 'btn btn-danger' %>
-        </div>
-        
+
     </div>
   </div>
+      </tr>
+      <tr>
+        <td scope="col">Pub Drink</td>
+        <% @pubs.each do |pub|%>
+      <td scope="col"><%=pub.drink %> </td>
+        <%end%>
+      </tr>
+      <tr>
+        <td scope="col">Par Score</td>
+        <% @pubs.each do |pub|%>
+      <td scope="col"><%= pub.strokes %> </td>
+        <%end%>
+      </tr>
+    </thead>
+    <tbody>
+      <% @participants.each do |participant| %>
+        <tr>
+          <td><%= participant.user.first_name %></td>
+          <% @pubs.each do |pub| %>
+            <% score = participant.pub_scores.find_by(pub: pub) %>
+            <td><%= score&.score || "-" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
+
+ <div class="card-pub">
+    <h6>Total Scores:</h6>
+    <% @game.participants.each do |participant| %>
+      <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
+    <% end %>
+    <div class="row mt-4">
+      <%= link_to 'End Game', end_game_game_path(@game), data: { turbo_method: :patch}, class: 'btn btn-danger' %>
+    </div>
 </div>
