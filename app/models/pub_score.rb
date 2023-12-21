@@ -1,4 +1,7 @@
 class PubScore < ApplicationRecord
-  belongs_to :participant
+
+  validates :score, presence: true
   belongs_to :pub
+  belongs_to :participant
+
 end
