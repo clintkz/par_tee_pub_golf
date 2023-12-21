@@ -4,8 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Nunito", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Inconsolata", "Helvetica", "sans-serif";
+$headers-font: "Inconsolata", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -16,3 +16,10 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+
+
+// Define fonts for body and headers
+// $body-font: "Nunito", "Helvetica", "sans-serif";
+// $headers-font: "Nunito", "Helvetica", "sans-serif";
+

@@ -1,5 +1,4 @@
-
-// .card-pub,
+.card-pub,
 .card-subheading,
 .card-map,
 .card-heading {
@@ -10,44 +9,21 @@
   color: black;
   h4 {
     color: #04843b;
-    font-weight:normal ;
+    font-weight: bolder ;
   }
 }
 
 .card-pub {
-  // background: rgba(244, 243, 243, 0.767);
-  background: #e2be08;
+  background: rgba(244, 243, 243, 0.767);
   padding: 4px;
-  color: white;
-  font-family: Nunito;
+  h6 {
+    color: #04843b;
+  }
 }
 
-.card-pub-green {
-  background: #04843b;
-  padding: 4px;
-  color: white;
-  font-family: Nunito;
-}
-.card-text {
-  // background: rgba(244, 243, 243, 0.767);
-  background: #04843b;
-  padding: 4px;
-  color: white;
-
-}
-
-.card-home {
-  background: #e2be08;
-  color: white;
-  // font-weight: bold;
-  padding: 4px;
-  border-radius: 8px;
-  border: black;
-}
 .card-pub-link {
-  color:white;
+  color: #04843b;
   font-weight: bold;
-  font-family: Nunito;
 }
 
 .card-nav-link {
@@ -98,3 +74,180 @@
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+// .card-pub,
+// .card-subheading,
+// .card-map,
+// .card-heading {
+//   width: 100%; /* Set width to 100% for mobile screens */
+//   margin-bottom: 10px;
+//   border-radius: 8px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   color: black;
+//   h4 {
+//     color: #04843b;
+//     font-weight:normal ;
+//   }
+// }
+
+// .card-pub {
+//   // background: rgba(244, 243, 243, 0.767);
+//   background: #ad5b00;
+//   padding: 4px;
+//   color: white;
+//   font-family: Nunito;
+//   margin-block: 16px;
+// }
+
+// .card-pub-green {
+//   background: #04843b;
+//   padding: 4px;
+//   color: white;
+//   font-family: Nunito;
+// }
+// .card-text {
+//   // background: rgba(244, 243, 243, 0.767);
+//   background: #04843b;
+//   padding: 4px;
+//   color: white;
+
+// }
+
+// .card-home {
+//   background: #ad5c008f;
+//   color: white;
+//   // font-weight: bold;
+//   padding: 4px;
+//   border-radius: 8px;
+//   border: black;
+// }
+// .card-pub-link {
+//   color:white;
+//   font-weight: bold;
+//   font-family: Nunito;
+// }
+
+// .card-nav-link {
+//   color: white;
+// }
+// .card-subheading {
+//   background: white;
+//   padding: 4px;
+// }
+
+// .card-map {
+//   background: white;
+//   padding: 4px;
+// }
+
+// .card-map > div {
+//   border-radius: 8px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+// }
+
+// .card-heading {
+//   background: rgba(238, 238, 238, 0.681);
+//   // background: (244, 243, 243, 0.767);
+//   padding: 4px;
+// }
+
+// /* Apply styles for smaller screens (e.g., mobile devices) */
+// @media (max-width: 480px) {
+//   .card-pub,
+//   .card-subheading,
+//   .card-map,
+//   .card-heading {
+//     width: 100%;
+//   }
+// }
+
+// .card-category {
+//   background-size: cover;
+//   background-position: center;
+//   height: 180px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   color: white;
+//   font-size: 24px;
+//   font-weight: bold;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   border-radius: 8px;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+// }
+
+// .card-pub,
+// .card-subheading,
+// .card-map,
+// .card-heading {
+//   width: 100%; /* Set width to 100% for mobile screens */
+//   margin-bottom: 10px;
+//   border-radius: 8px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   color: black;
+//   h4 {
+//     color: #04843b;
+//     font-weight: bolder ;
+//   }
+// }
+
+// .card-pub {
+//   background: rgba(244, 243, 243, 0.767);
+//   padding: 4px;
+//   h6 {
+//     color: #04843b;
+//   }
+// }
+
+// .card-pub-link {
+//   color: #04843b;
+//   font-weight: bold;
+// }
+
+// .card-nav-link {
+//   color: white;
+// }
+// .card-subheading {
+//   background: white;
+//   padding: 4px;
+// }
+
+// .card-map {
+//   background: white;
+//   padding: 4px;
+// }
+
+// .card-map > div {
+//   border-radius: 8px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+// }
+
+// .card-heading {
+//   background: rgba(238, 238, 238, 0.681);
+//   // background: (244, 243, 243, 0.767);
+//   padding: 4px;
+// }
+
+// /* Apply styles for smaller screens (e.g., mobile devices) */
+// @media (max-width: 480px) {
+//   .card-pub,
+//   .card-subheading,
+//   .card-map,
+//   .card-heading {
+//     width: 100%;
+//   }
+// }
+
+// .card-category {
+//   background-size: cover;
+//   background-position: center;
+//   height: 180px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   color: white;
+//   font-size: 24px;
+//   font-weight: bold;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   border-radius: 8px;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+// }
