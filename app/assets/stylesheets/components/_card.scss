@@ -19,7 +19,16 @@
   h6 {
     color: #04843b;
   }
+  border-radius: 8px;
 }
+.card-pub-green {
+    background: #04843b;
+    padding: 4px;
+    color: white;
+    font-family: Roboto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
 
 .card-pub-link {
   color: #04843b;
@@ -98,12 +107,7 @@
 //   margin-block: 16px;
 // }
 
-// .card-pub-green {
-//   background: #04843b;
-//   padding: 4px;
-//   color: white;
-//   font-family: Nunito;
-// }
+//
 // .card-text {
 //   // background: rgba(244, 243, 243, 0.767);
 //   background: #04843b;

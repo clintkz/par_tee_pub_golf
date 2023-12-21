@@ -1,8 +1,9 @@
 <%# <h1>Scorecard</h1> %>
 
     <div class="container-scores card-pub">
-      <h2>Congratulations on completing the <%= @game.course.name %></h2>
-        <p class="participant-name"><%= current_user.first_name  %></p>
+<div class="card-pub-green">
+      <h3>Congratulations on completing the <%= @game.course.name %>,
+        <%= current_user.first_name  %>!</h3></div>
     </div>
 
 <div class="container-scores card-pub">

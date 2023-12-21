@@ -1,11 +1,11 @@
 // Import Google fonts
 // @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-// @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700|Roboto:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700|Roboto:400,700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Inconsolata", "Helvetica", "sans-serif";
-$headers-font: "Inconsolata", "Helvetica", "sans-serif";
+$body-font: "Roboto", "Helvetica", "sans-serif";
+$headers-font: "Roboto", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -22,4 +22,3 @@ $headers-font: "Inconsolata", "Helvetica", "sans-serif";
 // Define fonts for body and headers
 // $body-font: "Nunito", "Helvetica", "sans-serif";
 // $headers-font: "Nunito", "Helvetica", "sans-serif";
-

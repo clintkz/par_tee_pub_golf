@@ -6,8 +6,9 @@
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  max-height: 90vh;
+  max-height: 80vh;
   max-width: 340px;
+  border-radius: 8px;
 
   h1 {
     border-bottom: 1px solid $gray-200;
