@@ -4,7 +4,7 @@
   color: white;
   border-radius: 10px;
   font-size: 20px;
-  font-family: "inconsolata";
+  font-family: "Nunito";
 }
 .btn-secondary{
   // background-color:rgb(231, 136, 3);
@@ -12,5 +12,13 @@
   color: white; // Uncomment this line
   border-radius: 10px;
   font-size: 20px; // Uncomment this line
-  font-family: "inconsolata"; // Uncomment this line
+  font-family: "Nunito"; // Uncomment this line
+}
+
+.btn-light {
+  box-sizing: border-box;
+  // color: white;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: "Nunito";
 }

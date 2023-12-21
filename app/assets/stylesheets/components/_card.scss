@@ -10,12 +10,13 @@
   color: black;
   h4 {
     color: #04843b;
-    font-weight: bolder ;
+    font-weight:normal ;
   }
 }
 
 .card-pub {
-  background: rgba(244, 243, 243, 0.767);
+  // background: rgba(244, 243, 243, 0.767);
+  background: #e2be08;
   padding: 4px;
   h6 {
     color: #04843b;
@@ -23,16 +24,17 @@
 }
 
 .card-home {
-  background: #04843b62;
+  background: #e2be08;
   color: white;
-  font-weight: bold;
+  // font-weight: bold;
   padding: 4px;
   border-radius: 8px;
   border: black;
 }
 .card-pub-link {
-  color: #04843b;
+  color:white;
   font-weight: bold;
+  font-family: Nunito;
 }
 
 .card-nav-link {
