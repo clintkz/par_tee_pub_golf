@@ -27,9 +27,10 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
-  resources :games, only: [:show, :index] do
+  resources :games, only: [:show, :index, :end_game] do
     member do
       patch :start
+      patch :end_game
     end
     get 'scorecard', on: :member, as: "scorecard"
     resources :participants, except: [:show, :index, :create, :new, :edit, :destroy, :update] do
