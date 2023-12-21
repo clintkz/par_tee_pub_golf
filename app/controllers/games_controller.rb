@@ -44,6 +44,11 @@ class GamesController < ApplicationController
                          .where.not(id: @created_games.pluck(:id))
                          .where(status: nil)
 
+    @completed_games = Game.joins(:participants)
+                         .where(participants: { user_id: current_user.id })
+                         .where.not(id: @created_games.pluck(:id))
+                         .where(status: "ended")
+
     # Collecting game IDs where the current user is either the creator or a participant
     created_game_ids = Game.where(user_id: current_user.id, status: 'started').pluck(:id)
     participant_game_ids = Game.joins(:participants)
