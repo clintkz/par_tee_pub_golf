@@ -73,6 +73,15 @@ class GamesController < ApplicationController
     @pubs = @game.course.pubs
   end
 
+  def end_game
+    @game = Game.find(params[:id])
+    if @game.update(status: 'ended')
+    redirect_to games_path, notice: 'Game ended successfully'
+    else
+      render :scorecard, alert: "Error ending game"
+    end
+  end
+
   private
 
   def game_params
