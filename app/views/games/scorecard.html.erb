@@ -13,6 +13,10 @@
         <% @pubs.each do |pub| %>
           <th scope="col"><%= pub.name %></th>
         <% end %>
+      </div>
+
+    </div>
+  </div>
       </tr>
       <tr>
         <td scope="col">Pub Drink</td>
@@ -46,4 +50,7 @@
     <% @game.participants.each do |participant| %>
       <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
     <% end %>
-</div>
+    <div class="row mt-4">
+      <%= link_to 'End Game', end_game_game_path(@game), data: { turbo_method: :patch}, class: 'btn btn-danger' %>
+    </div>
+  rails </div>
