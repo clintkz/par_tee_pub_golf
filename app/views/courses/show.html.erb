@@ -1,19 +1,18 @@
 <div class="container-courses">
-  <div class="container-parent">
-    <h3>Hi, <%= current_user.first_name %></h3>
-
-    <h5><strong>Get ready for an unforgettable adventure! Behold, the vibrant lineup of pubs awaiting you on the chosen course. Its time for your Par-tee adventure to begin!</strong></h5>
-
-  <% @pubs.each do |pub| %>
-    <div class="card-pub">
-      <h6 class="pub-name" ><%= link_to pub.name, pub_path(pub.id), class:"card-pub-link" %></h6>
-      <hr>
-      <p class="pub-address"><%= pub.address %></p>
-      <p class="pub-drink"><%= pub.drink %></p>
+ <!-- <div class="container-parent">-->
+    <div class="card-pub-green">
+      <h5>Hi <%= current_user.first_name %>,</h5>
+      <h6>Get ready for an unforgettable adventure! Behold, the vibrant lineup of pubs awaiting you on the chosen course. Its time for your Par-tee adventure to begin!</h6>
     </div>
-  <% end %>
-  <div class="d-grid gap-2">
-    <%= link_to "Create Game", new_course_game_path(@course), class: "btn btn-primary" %>
+    <% @pubs.each do |pub| %>
+      <div class="card-pub">
+        <h6 class="pub-name" ><%= link_to pub.name, pub_path(pub.id), class:"card-pub-link" %></h6>
+        <p class="pub-address"><%= pub.address %></p>
+        <p class="pub-drink"><%= pub.drink %></p>
+      </div>
+    <% end %>
+    <div class="d-grid gap-2">
+      <%= link_to "Create Game", new_course_game_path(@course), class: "btn btn-primary" %>
+    </div>
   </div>
-</div>
 </div>

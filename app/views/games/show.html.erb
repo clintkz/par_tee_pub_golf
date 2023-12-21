@@ -1,12 +1,15 @@
 <div class="container-courses">
   <!--<div class="container-parent">-->
-  <div class="card-heading">
-    <h4>Game Details</h4><hr>
+  <!--<div class="card-heading">-->
+    <div class="card-pub">
+    <h4>Game Details</h4>
     <p>Course: <%= @game.course.name %></p>
     <p>Date and Time: <%= @game.date_time %></p>
-  </div>
-  <div class="card-heading">
-    <h4>Participants</h4><hr>
+    </div>
+  <!--</div>-->
+<!--  <div class="card-heading">-->
+    <div class="card-pub">
+    <h4>Participants</h4>
     <ul>
       <% @participants.each do |participant| %>
         <li>

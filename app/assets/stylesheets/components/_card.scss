@@ -1,5 +1,5 @@
 
-.card-pub,
+// .card-pub,
 .card-subheading,
 .card-map,
 .card-heading {
@@ -18,9 +18,22 @@
   // background: rgba(244, 243, 243, 0.767);
   background: #e2be08;
   padding: 4px;
-  h6 {
-    color: #04843b;
-  }
+  color: white;
+  font-family: Nunito;
+}
+
+.card-pub-green {
+  background: #04843b;
+  padding: 4px;
+  color: white;
+  font-family: Nunito;
+}
+.card-text {
+  // background: rgba(244, 243, 243, 0.767);
+  background: #04843b;
+  padding: 4px;
+  color: white;
+
 }
 
 .card-home {

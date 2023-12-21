@@ -1,41 +1,37 @@
 <div class="container-courses">
-<h2>Hey <%= @user_first_name %>,</h2>
-</div>
+  <div class="card-pub">
+    <h3>Hey <%= @user_first_name %>,</h3>
+    <h3>You're playing the <%= @course.name %></h3>
+  </div>
+    <div class="card-pub accordian accordian-flush" id="accordianFlushExample">
+      <h6 class="pub-name"><%= @pub.name  %></h6>
+      <p class="pub-address">Addresss: <%= @pub.address %></p>
+      <p class="pub-drink">Drink: <%= @pub.drink %></p>
+      <p class="pub-strokes">Par: <%= @pub.strokes %></p>
+    <div class="accordian-item">
+      <h2 class="accordion-header" id="flush-headingOne">
 
-<div class="container-courses">
-  <h2>You're playing the <strong><%= @course.name %></strong></h2>
-        <div class="card-pub accordian accordian-flush" id="accordianFlushExample">
-            <h6 class="pub-name"><%= @pub.name  %></h6>
-            <hr>
-            <p class="pub-address">Addresss: <%= @pub.address %></p>
-            <p class="pub-drink">Drink: <%= @pub.drink %></p>
-            <p class="pub-strokes">Par: <%= @pub.strokes %></p>
-            <div class="accordian-item">
-              <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                  Click here for this pubs rules
-                </button>
-                <hr>
-              </h2>
-              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                      <p><%= @pub.rules%> </p>
-                </div>
-              </div>
-            </div>
-
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Click here for this pubs rules
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <p><%= @pub.rules%> </p>
         </div>
-
-      <div class="container-courses">
-        <%# if @last_element == false %>
-          <%#= link_to 'Next Pub', participant_path(pub_id: @pub.id) %>
-        <%# else %>
-          <%#= link_to 'Final Scores', scorecard_game_path(@game) %>
-        <%#end%>
-        <%= simple_form_for [@participant, @pub_score] do |form| %>
-        <%= form.input :score %>
-        <%= form.input :pub_id, as: :hidden%>
-        <%= form.button :submit, "Submit Score", class: "btn btn-primary" %>
-        <% end %>
       </div>
+    <!--</div>-->
+  <!--</div>-->
+ <!-- <div class="container-courses">-->
+    <%# if @last_element == false %>
+    <%#= link_to 'Next Pub', participant_path(pub_id: @pub.id) %>
+    <%# else %>
+    <%#= link_to 'Final Scores', scorecard_game_path(@game) %>
+    <%#end%>
+    <%= simple_form_for [@participant, @pub_score] do |form| %>
+      <%= form.input :score %>
+      <%= form.input :pub_id, as: :hidden%>
+      <%= form.button :submit, "Submit Score", class: "btn btn-primary w-100" %>
+    <% end %>
+  </div>
 </div>
