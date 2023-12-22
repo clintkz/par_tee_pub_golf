@@ -30,6 +30,19 @@
 
       <div class="card-pub mb-4">
         <div class="card-header">
+          <h4>Games Completed</h4>
+        </div>
+        <hr>
+        <% @completed_games.each do |game| %>
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <%= link_to game.course.name, scorecard_game_path(game) %>
+            <%= link_to 'Chat', chatroom_path(game.chatroom), class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="card-pub mb-4">
+        <div class="card-header">
           <h4>Games Underway</h4>
         </div>
 
@@ -39,6 +52,5 @@
             <%= link_to 'Chat', chatroom_path(game.chatroom), class: "btn btn-primary" %>
           </div>
         <% end %>
-      <!--</div>-->
     </div>
   </div>
