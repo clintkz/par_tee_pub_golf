@@ -70,6 +70,7 @@ class GamesController < ApplicationController
   def scorecard
     @game = Game.find(params[:id])
     @participants = @game.participants
+    @participant = @game.participants.find_by(user_id: current_user.id)
     @pubs = @game.course.pubs
   end
 
