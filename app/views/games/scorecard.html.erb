@@ -1,7 +1,11 @@
 <div class="container-courses">
   <div class="container-scores card-pub">
-    <h2>Congratulations on completing the <%= @game.course.name %></h2>
-    <p class="participant-name"><%= current_user.first_name %></p>
+     <% lowest_score_participant = @participants.min_by { |participant| participant.total_score } %>
+        <% if lowest_score_participant.user.first_name == current_user.first_name %>
+          <h2>Congratulations on winning the "<%= @game.course.name %>",  <%= current_user.first_name %> </h2>
+        <%else%>
+          <h2>Congratulations on completing the "<%= @game.course.name %>",  <%= current_user.first_name %> </h2>
+        <%end%>
   </div>
 
   <div class="container-scores card-pub table-responsive">
@@ -9,23 +13,23 @@
         <thead>
           <tr>
             <th scope="col">Pub</th>
-            <% @pubs.each do |pub| %>
-              <th scope="col"><%= pub.name %></th>
-            <% end %>
+              <% @pubs.each do |pub| %>
+                <th scope="col"><%= pub.name %></th>
+              <% end %>
             <th scope="col">Total Score</th>
           </tr>
           <tr>
             <td scope="col">Pub Drink</td>
-            <% @pubs.each do |pub| %>
-              <td scope="col"><%= pub.drink %></td>
-            <% end %>
+              <% @pubs.each do |pub| %>
+                <td scope="col"><%= pub.drink %></td>
+              <% end %>
             <td></td>
           </tr>
           <tr>
             <td scope="col">Par</td>
-            <% @pubs.each do |pub| %>
-              <td scope="col"><%= pub.strokes %></td>
-            <% end %>
+              <% @pubs.each do |pub| %>
+                <td scope="col"><%= pub.strokes %></td>
+              <% end %>
             <td></td>
           </tr>
         </thead>
@@ -34,11 +38,11 @@
             <tr>
               <td><%= participant.user.first_name %></td>
               <% total_score = 0 %>
-              <% @pubs.each do |pub| %>
-                <% score = participant.pub_scores.find_by(pub: pub) %>
-                <% total_score += score&.score.to_i %>
-                <td><%= score&.score || "-" %></td>
-              <% end %>
+                <% @pubs.each do |pub| %>
+                  <% score = participant.pub_scores.find_by(pub: pub) %>
+                  <% total_score += score&.score.to_i %>
+                  <td><%= score&.score || "-" %></td>
+                <% end %>
               <td><%= total_score %></td>
             </tr>
           <% end %>
