@@ -1,38 +1,39 @@
 <div class="container-courses">
-    <div class="card-pub-green">
-      <h4>Hey <%= @user_first_name %>,</h4>
-      <h4>You're playing the <%= @course.name %></h4>
-    </div>
-    <div class="card-pub accordian accordian-flush" id="accordianFlushExample">
-      <h6 class="pub-name"><%= @pub.name  %></h6>
-      <p class="pub-address">Addresss: <%= @pub.address %></p>
-      <p class="pub-drink">Drink: <%= @pub.drink %></p>
-      <p class="pub-strokes">Par: <%= @pub.strokes %></p>
-        <div class="accordian-item">
-        <h2 class="accordion-header" id="flush-headingOne">
+  <div class="card-pub-green">
+    <h4>Hey <%= @user_first_name %>,</h4>
+    <h4>You're playing the <%= @course.name %></h4>
+  </div>
+  <div class="card-pub accordian accordian-flush" id="accordianFlushExample">
+    <h6 class="pub-name"><%= @pub.name  %></h6>
+    <p class="pub-address">Addresss: <%= @pub.address %></p>
+    <p class="pub-drink">Drink: <%= @pub.drink %></p>
+    <p class="pub-strokes">Par: <%= @pub.strokes %></p>
+    <div class="accordian-item">
+      <h2 class="accordion-header" id="flush-headingOne">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-            Click here for the pub rules
-          </button>
-          </h2>
-          <hr>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-             <strong> <p><%= @pub.rules%> </p></strong>
-            </div>
-          </div>
+          <strong>Click here for the pub rules</strong>
+        </button>
+      </h2>
+      <hr>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <strong>
+            <p><%= @pub.rules%> </p>
+          </strong>
         </div>
-
-      <%= simple_form_for [@participant, @pub_score] do |form| %>
-        <%= form.input :score, placeholder:"Input your score here", label: false%>
-        <%= form.input :pub_id, as: :hidden%>
-        <%= form.button :submit, "Submit Score", class: "btn btn-primary w-100" %>
-      <% end %>
-<br>
+      </div>
+    </div>
+    <%= simple_form_for [@participant, @pub_score] do |form| %>
+      <%= form.input :score, placeholder:"Input your score here", label: false%>
+      <%= form.input :pub_id, as: :hidden%>
+      <%= form.button :submit, "Submit Score", class: "btn btn-primary w-100" %>
+    <% end %>
+    <br>
     <%= link_to 'Chat', chatroom_path(@game.chatroom), class: "btn btn-primary w-100" %>
     <%#= simple_form_for [@participant, @pub_score] do |form| %>
       <%#= form.input :score, placeholder:"Input your score here", label: false%>
       <%#= form.input :pub_id, as: :hidden%>
       <%#= form.button :submit, "Submit Score", class: "btn btn-primary w-100" %>
-    <%# end %>
+      <%# end %>
+    </div>
   </div>
-</div>
