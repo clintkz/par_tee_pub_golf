@@ -2,15 +2,11 @@
   <div class="card-pub">
     <h4>Game Details</h4>
     <p> <%= @game.course.name %></p>
-   <!-- <p>Date and Time: <%#= @game.date_time %></p>-->
-
-      <% if @game.date_time.present? %>
-    <p> <%= @game.date_time.strftime('%A, %d %b %Y %l:%M %p') %></p>
-  <% end %>
+    <!-- <p>Date and Time: <%#= @game.date_time %></p>-->
+    <% if @game.date_time.present? %>
+      <p> <%= @game.date_time.strftime('%A, %d %b %Y %l:%M %p') %></p>
+    <% end %>
   </div>
-
-
-
   <div class="card-pub">
     <h4>Participants</h4>
     <ul>
