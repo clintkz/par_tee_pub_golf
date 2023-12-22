@@ -1,4 +1,3 @@
-
 .card-pub,
 .card-subheading,
 .card-map,
@@ -8,6 +7,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: black;
+  padding: 10px;
   h4 {
     color: #04843b;
     font-weight: bolder ;
@@ -16,15 +16,25 @@
 
 .card-pub {
   background: rgba(244, 243, 243, 0.767);
-  padding: 4px;
+  padding: 10px;
   h6 {
     color: #04843b;
   }
+  border-radius: 8px;
 }
+.card-pub-green {
+    background: #04843b;
+    padding: 10px;
+    color: white;
+    font-family: Roboto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
 
 .card-pub-link {
   color: #04843b;
   font-weight: bold;
+  padding: 10px;
 }
 
 .card-nav-link {
@@ -32,12 +42,12 @@
 }
 .card-subheading {
   background: white;
-  padding: 4px;
+  padding: 10px;
 }
 
 .card-map {
   background: white;
-  padding: 4px;
+  padding: 10px;
 }
 
 .card-map > div {
@@ -47,11 +57,9 @@
 
 .card-heading {
   background: rgba(238, 238, 238, 0.681);
-  // background: (244, 243, 243, 0.767);
-  padding: 4px;
+  padding: 10px;
 }
 
-/* Apply styles for smaller screens (e.g., mobile devices) */
 @media (max-width: 480px) {
   .card-pub,
   .card-subheading,
@@ -74,4 +82,9 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+}
+
+.accordion-body{
+  color:#04843b;
 }

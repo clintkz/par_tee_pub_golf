@@ -3,29 +3,27 @@
   max-width: 360px;
   margin: 0 auto;
   padding: 15px;
-  font-family: Inconsolata, sans-serif;
+  font-family: Roboto;
   background-color: rgba(255, 255, 255, 0.006);
   color: white;
   border-radius: 16px;
   overflow-y: auto;
-  // overflow: hidden;
-
 }
 
 .container-pubs {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  padding: 10px;
 }
 
 .container-map {
   width: 480px;
-  // border: 1px solid red;
   border-radius: 3px;
 }
 
 .container {
-font-family: Inconsolata;
+font-family: Roboto;
 margin: 0 auto;
 margin-left: 20px;
 border-radius: 3px;

@@ -1,13 +1,11 @@
 <div class="container-courses">
-  <div class="container-parent">
-    <h3>Hi, <%= current_user.first_name %></h3>
-
-    <h5><strong>Get ready for an unforgettable adventure! Behold, the vibrant lineup of pubs awaiting you on the chosen course. Its time for your Par-tee adventure to begin!</strong></h5>
-
+  <div class="card-pub-green">
+    <h6>Hi <%= current_user.first_name %>,</h6>
+    <h6>Get ready for an unforgettable adventure! Behold, the vibrant lineup of pubs awaiting you on the chosen course. It's time for your Par-tee adventure to begin!</h6>
+  </div>
   <% @pubs.each do |pub| %>
     <div class="card-pub">
       <h6 class="pub-name" ><%= link_to pub.name, pub_path(pub.id), class:"card-pub-link" %></h6>
-      <hr>
       <p class="pub-address"><%= pub.address %></p>
       <p class="pub-drink"><%= pub.drink %></p>
     </div>

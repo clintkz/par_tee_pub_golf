@@ -1,10 +1,11 @@
- <div class="card-heading">
-    <h4>Game Details</h4><hr>
+<div class="container-courses">
+  <div class="card-pub">
+    <h4>Game Details</h4>
     <p>Course: <%= @game.course.name %></p>
     <p>Date and Time: <%= @game.date_time %></p>
   </div>
-  <div class="card-heading">
-    <h4>Participants</h4><hr>
+  <div class="card-pub">
+    <h4>Participants</h4>
     <ul>
       <% @participants.each do |participant| %>
         <li>
@@ -32,16 +33,17 @@
         </li>
       <% end %><br>
     </ul>
-      <% if current_user.id == @game.user_id && @game.status != "started" %>
-        <div class="d-grid gap-2"><%= button_to 'Start Game', start_game_path(@game), method: :patch, class: 'btn btn-primary mb-2 w-100' %></div>
-          <div class="d-grid gap-2"><%= link_to chatroom_path(@game.chatroom), class: 'btn btn-primary' do %>
-            Chat
-          <% end %>
+    <% if current_user.id == @game.user_id && @game.status != "started" %>
+      <div class="d-grid gap-2"><%= button_to 'Start Game', start_game_path(@game), method: :patch, class: 'btn btn-primary mb-2 w-100' %></div>
+      <div class="d-grid gap-2"><%= link_to chatroom_path(@game.chatroom), class: 'btn btn-primary' do %>
+          Chat
         <% end %>
-      </div>
-      <% participant = @game.participants.find_by(user: current_user) %>
-      <% if @game.status == "started" && (participant&.status == 'accepted' || current_user.id == @game.user_id) %>
-        <%= button_to 'Tee-off', start_game_path(@game), method: :patch, class: 'btn btn-primary mb-2' %>
       <% end %>
+    </div>
+    <% participant = @game.participants.find_by(user: current_user) %>
+    <% if @game.status == "started" && (participant&.status == 'accepted' || current_user.id == @game.user_id) %>
+      <%= button_to 'Tee-off', start_game_path(@game), method: :patch, class: 'btn btn-primary mb-2' %>
+    <% end %>
   </div>
+</div>
 </div>

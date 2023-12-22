@@ -1,5 +1,6 @@
+<%# <h1>Scorecard</h1> %>
 <div class="container-courses">
-  <div class="container-scores card-pub">
+  <div class="container-scores card-pub-green">
      <% lowest_score_participant = @participants.min_by { |participant| participant.total_score } %>
         <% if lowest_score_participant.user.first_name == current_user.first_name %>
           <h2>Congratulations on winning the "<%= @game.course.name %>",  <%= current_user.first_name %> </h2>
@@ -8,7 +9,7 @@
         <%end%>
   </div>
 
-  <div class="container-scores card-pub table-responsive">
+  <div class="container-scores  table-responsive">
       <table class="score_table table card-pub table-bordered">
         <thead>
           <tr>
