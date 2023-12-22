@@ -18,11 +18,9 @@ body,a{
   text-decoration: none;
 }
 
-
 .background{
   background-image: url("background.jpg");
   background-size: cover;
-  // background-size: contain; /* or your preferred size */
   background-repeat: no-repeat;
   background-position: center center;
   min-height: 100vh;

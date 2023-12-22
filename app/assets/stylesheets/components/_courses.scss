@@ -1,3 +1,12 @@
+@media (max-width: 480px) {
+  .courses-heading {
+    font-size: 20px; /* Adjust font size for mobile screens */
+  }
+
+  .courses-subheading {
+    font-size: 16px; /* Adjust font size for mobile screens */
+  }
+}
 
 // .courses-heading {
 //   font-size: 24px;
@@ -11,14 +20,3 @@
 //   color: white;
 //   background-color: rgb(231, 136, 3)
 // }
-
-/* Apply styles for smaller screens (e.g., mobile devices) */
-@media (max-width: 480px) {
-  .courses-heading {
-    font-size: 20px; /* Adjust font size for mobile screens */
-  }
-
-  .courses-subheading {
-    font-size: 16px; /* Adjust font size for mobile screens */
-  }
-}

@@ -1,12 +1,12 @@
 <div class="container-courses">
   <div class="container-parent">
     <div class="card-pub-green">
-    <h3>My Games</h3></div>
+      <h3>My Games</h3>
+    </div>
     <div class="card-pub mb-4">
       <div class="card-header">
         <h4>Games I've Organised</h4>
       </div>
-
       <% @created_games.each do |game| %>
         <div class="card-header d-flex justify-content-between align-items-center">
           <%= link_to game.course.name, game_path(game) %>
@@ -14,31 +14,26 @@
         </div>
       <% end %>
     </div>
-
-      <div class="card-pub mb-4">
-        <div class="card-header">
-          <h4>Games I've Been Invited To</h4>
-        </div>
-
-        <% @invited_games.each do |game| %>
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <%= link_to game.course.name, game_path(game) %>
-            <%= link_to 'Chat', chatroom_path(game.chatroom), class: "btn btn-primary" %>
-          </div>
-        <% end %>
+    <div class="card-pub mb-4">
+      <div class="card-header">
+        <h4>Games I've Been Invited To</h4>
       </div>
-
-      <div class="card-pub mb-4">
-        <div class="card-header">
-          <h4>Games Underway</h4>
+      <% @invited_games.each do |game| %>
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <%= link_to game.course.name, game_path(game) %>
+          <%= link_to 'Chat', chatroom_path(game.chatroom), class: "btn btn-primary" %>
         </div>
-
-        <% @started_games.each do |game| %>
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <%= link_to game.course.name, game_path(game) %>
-            <%= link_to 'Chat', chatroom_path(game.chatroom), class: "btn btn-primary" %>
-          </div>
-        <% end %>
-      <!--</div>-->
+      <% end %>
+    </div>
+    <div class="card-pub mb-4">
+      <div class="card-header">
+        <h4>Games Underway</h4>
+      </div>
+      <% @started_games.each do |game| %>
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <%= link_to game.course.name, game_path(game) %>
+          <%= link_to 'Chat', chatroom_path(game.chatroom), class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>

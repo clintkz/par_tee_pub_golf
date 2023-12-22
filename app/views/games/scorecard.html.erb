@@ -1,82 +1,56 @@
 <%# <h1>Scorecard</h1> %>
 <div class="container-courses">
-  <!--<div class="container-scores card-pub">-->
   <div class="card-pub-green">
     <h3>Congratulations on completing the <%= @game.course.name %>,
       <%= current_user.first_name  %>!</h3>
   </div>
-
-
-
-<div class="container-scores card-pub table-responsive">
-  <table class="score_table table card-pub table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">Pub</th>
-        <% @pubs.each do |pub| %>
-          <th scope="col"><%= pub.name %></th>
-        <% end %>
-        <th scope="col">Total Score</th>
-      </tr>
-      <tr>
-        <td scope="col">Pub Drink</td>
-        <% @pubs.each do |pub| %>
-          <td scope="col"><%= pub.drink %></td>
-        <% end %>
-        <td></td>
-      </tr>
-      <tr>
-        <td scope="col">Par</td>
-        <% @pubs.each do |pub| %>
-          <td scope="col"><%= pub.strokes %></td>
-        <% end %>
-        <td></td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @participants.each do |participant| %>
+  <div class="container-scores card-pub table-responsive">
+    <table class="score_table table card-pub table-bordered">
+      <thead>
         <tr>
-          <td><%= participant.user.first_name %></td>
-          <% total_score = 0 %>
+          <th scope="col">Pub</th>
           <% @pubs.each do |pub| %>
-            <% score = participant.pub_scores.find_by(pub: pub) %>
-            <% total_score += score&.score.to_i %>
-            <td><%= score&.score || "-" %></td>
+            <th scope="col"><%= pub.name %></th>
           <% end %>
-          <td><%= total_score %></td>
+          <th scope="col">Total Score</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-<%#= link_to 'End Game', end_game_game_path(@game), data: { turbo_method: :patch}, class: 'btn btn-primary mb-2 w-100' %>
-<!---->
-
-<div class="card-pub">
-  <h6><strong>Total Scores:</strong></h6>
-  <% @game.participants.each do |participant| %>
-    <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
-  <% end %>
-  <div class="d-grid gap-2">
-    <!-- <div class="row mt-4">-->
-    <%= link_to 'End Game', end_game_game_path(@game), data: { turbo_method: :patch}, class: 'btn btn-success' %>
+        <tr>
+          <td scope="col">Pub Drink</td>
+          <% @pubs.each do |pub| %>
+            <td scope="col"><%= pub.drink %></td>
+          <% end %>
+          <td></td>
+        </tr>
+        <tr>
+          <td scope="col">Par</td>
+          <% @pubs.each do |pub| %>
+            <td scope="col"><%= pub.strokes %></td>
+          <% end %>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @participants.each do |participant| %>
+          <tr>
+            <td><%= participant.user.first_name %></td>
+            <% total_score = 0 %>
+            <% @pubs.each do |pub| %>
+              <% score = participant.pub_scores.find_by(pub: pub) %>
+              <% total_score += score&.score.to_i %>
+              <td><%= score&.score || "-" %></td>
+            <% end %>
+            <td><%= total_score %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-  </div>
-  <!--  rails </div>-->
-  <!--<div class="container-courses">
-    <div class="container-scores card-pub">
-      <h2>Congratulations on completing the <%#= @game.course.name %></h2>
-      <p class="participant-name"><%#= current_user.first_name %></p>
+  <div class="card-pub">
+    <h6><strong>Total Scores:</strong></h6>
+    <% @game.participants.each do |participant| %>
+      <p><%= participant.user.first_name %>: <%= participant.total_score %></p>
+    <% end %>
+    <div class="d-grid gap-2">
+      <%= link_to 'End Game', end_game_game_path(@game), data: { turbo_method: :patch}, class: 'btn btn-success' %>
     </div>
-  </div>-->
-
-
- <!--</div>-->
-  <!--<div class="container-scores card-pub">-->
-  <!--<table class="table card-pub table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">Player</th>
-        <%# @pubs.each do |pub| %>-->
-  <!--          <th scope="col"><%#= pub.name %></th>-->
-  <%# end %>
+  </div>
