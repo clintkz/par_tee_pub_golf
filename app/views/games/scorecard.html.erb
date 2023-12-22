@@ -49,6 +49,10 @@
         </tbody>
       </table>
     </div>
+      <% if  @participant.user_id == @game.user_id && @game.status != "ended"%>
       <%= link_to 'End Game', end_game_game_path(@game), data: { turbo_method: :patch}, class: 'btn btn-primary mb-2 w-100' %>
+      <% else%>
+      <%= link_to 'Retun to Home', root_path, class: 'btn btn-primary mb-2 w-100'%>
+      <%end%>
   </div>
 </div>

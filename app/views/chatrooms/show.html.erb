@@ -3,6 +3,10 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
+<div>
+  <%#= link_to 'Back to Game', participant_path(@chatroom.game.participants.find_by(user_id: current_user.id).id, pub_id: @pub.id) %>
+  <%= link_to 'Back to Game', :back , class: "btn btn-primary" %>
+</div>
   <h1><%=current_user.first_name%>
   <br> <%= @chatroom.name %></h1>
 

@@ -27,15 +27,12 @@
         </div>
 
       <div class="container-courses">
-        <%# if @last_element == false %>
-          <%#= link_to 'Next Pub', participant_path(pub_id: @pub.id) %>
-        <%# else %>
-          <%#= link_to 'Final Scores', scorecard_game_path(@game) %>
-        <%#end%>
         <%= simple_form_for [@participant, @pub_score] do |form| %>
         <%= form.input :score %>
         <%= form.input :pub_id, as: :hidden%>
         <%= form.button :submit, "Submit Score", class: "btn btn-primary" %>
         <% end %>
       </div>
+
+<%= link_to 'Chat', chatroom_path(@game.chatroom), class: "btn btn-primary" %>
 </div>
