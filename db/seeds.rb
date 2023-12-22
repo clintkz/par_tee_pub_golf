@@ -48,8 +48,8 @@ puts "#{Course.count} courses created"
 # Create Users
 users = [
   { email: "user1@example.com", password: "bossceo", first_name: "Vince", last_name: "McMahan" },
-  { email: "user2@example.com", password: "hitman", first_name: "Shaun", last_name: "Michaels" },
-  { email: "user3@example.com", password: "heartbreakkid", first_name: "Brett", last_name: "Heart"  },
+  { email: "user2@example.com", password: "heartbreakkid", first_name: "Shaun", last_name: "Michaels" },
+  { email: "user3@example.com", password: "hitman", first_name: "Brett", last_name: "Heart"  },
   { email: "user4@example.com", password: "austin_3:16", first_name: "Steve", last_name: "Austin"  },
   { email: "user5@example.com", password: "peopleschamp", first_name: "Dwayne", last_name: "Johnson"  },
 ]
