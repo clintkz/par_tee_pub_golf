@@ -6,30 +6,31 @@
         <%= form.datetime_field :date_time, class: 'form-control' %>
       </div>
     </div>
-    <div class="card-pub">
-      <div class="form-group">
-        <label class='form-label'>Participants</label>
-        <% @users.each do |user| %>
-          <% unless user == current_user %>
-            <div class="form-check">
-              <%= check_box_tag 'game[user_ids][]', user.id, @game.user_ids.include?(user.id), id: dom_id(user), class: 'form-check-input' %>
-              <%= label_tag dom_id(user), user.full_name, class: 'form-check-label' %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <% if flash[:alert] %>
-      <div class="alert alert-success">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
+  </div>
+  <div class="card-pub">
     <div class="form-group">
-      <div class="d-grid gap-2">
-        <%= form.submit "Create Game", class: 'btn btn-primary' %>
-      </div>
+      <label class='form-label'>Participants</label>
+      <% @users.each do |user| %>
+        <% unless user == current_user %>
+          <div class="form-check">
+            <%= check_box_tag 'game[user_ids][]', user.id, @game.user_ids.include?(user.id), id: dom_id(user), class: 'form-check-input' %>
+            <%= label_tag dom_id(user), user.full_name, class: 'form-check-label' %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% if flash[:alert] %>
+    <div class="alert alert-success">
+      <%= flash[:alert] %>
     </div>
   <% end %>
+  <div class="form-group">
+    <div class="d-grid gap-2">
+      <%= form.submit "Create Game", class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
 </div>
 </div>
 </div>
