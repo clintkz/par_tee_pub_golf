@@ -20,6 +20,7 @@
     height: 100%;
     overflow: scroll;
     padding: 1rem;
+    
   }
 
   #new_message {
@@ -30,4 +31,12 @@
       margin-bottom: 0;
     }
   }
+
+}
+
+.chat-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
 }
