@@ -31,7 +31,7 @@
             - Arrived: <%= participant.arrived ? 'Yes' : 'No' %>
           <% end %>
           <% if (participant.user == current_user && (participant.status == 'accepted' || current_user.id == @game.user_id)) %>
-            <%= button_to 'Mark as Arrived', mark_as_arrived_game_participant_path(@game, participant), method: :patch, class: 'btn btn-primary mt-3' unless participant.arrived %>
+            <%= button_to 'Mark as Arrived', mark_as_arrived_game_participant_path(@game, participant), method: :patch, class: 'btn btn-primary btn-sm mt-3' unless participant.arrived %>
           <% end %>
         </li>
       <% end %><br>

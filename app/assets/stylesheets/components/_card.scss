@@ -24,7 +24,7 @@
 }
 .card-pub-green {
     background: #04843b;
-    padding: 10px;
+    padding: 16px;
     color: white;
     font-family: Roboto;
     border-radius: 8px;
@@ -43,12 +43,12 @@
 }
 .card-subheading {
   background: white;
-  padding: 10px;
+  padding: 16px;
 }
 
 .card-map {
   background: white;
-  padding: 10px;
+  padding: 16px;
 }
 
 .card-map > div {
@@ -58,7 +58,7 @@
 
 .card-heading {
   background: rgba(238, 238, 238, 0.681);
-  padding: 10px;
+  padding: 16px;
 }
 
 @media (max-width: 480px) {
@@ -83,7 +83,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 10px;
+  padding: 16px;
 }
 
 .accordion-body{
