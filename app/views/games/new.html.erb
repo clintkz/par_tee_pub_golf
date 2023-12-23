@@ -2,7 +2,7 @@
   <%= form_with(model: [@course, @game], class: 'form') do |form| %>
     <div class="card-pub">
       <div class="form-group">
-        <%= form.label :game_date, 'Game Date and Time', class: 'form-label' %>
+        <%= form.label :game_date, 'Game Date and Time:', class: 'form-label' %>
         <%= form.datetime_field :date_time, class: 'form-control' %>
       </div>
 
@@ -15,7 +15,7 @@
 
     <div class="card-pub">
       <div class="form-group">
-        <label class='form-label'>Participants</label>
+        <label class='form-label'>Choose your buddies:</label>
         <% @users.each do |user| %>
           <% unless user == current_user %>
             <div class="form-check">

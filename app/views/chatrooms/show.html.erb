@@ -3,13 +3,14 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
-<div>
+<div class="chat-header">
   <%#= link_to 'Back to Game', participant_path(@chatroom.game.participants.find_by(user_id: current_user.id).id, pub_id: @pub.id) %>
-  <%= link_to 'Back to Game', :back , class: "btn btn-primary" %>
+
+  <%= link_to 'Back', :back , class: "btn btn-primary " %>
+ <h2><%= @chatroom.name %></h2>
+  <!--<h1><%#=current_user.first_name%>-->
 </div>
-  <h1><%=current_user.first_name%>
     <br>
- <%= @chatroom.name %></h1>
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
       <div class="message-row d-flex <%= message.user == current_user ? 'justify-content-end' : 'justify-content-start' %>">

@@ -5,9 +5,14 @@
   </div>
   <% @pubs.each do |pub| %>
     <div class="card-pub">
-      <h6 class="pub-name" ><%= link_to pub.name, pub_path(pub.id), class:"card-pub-link" %></h6>
-      <p class="pub-address"><%= pub.address %></p>
-      <p class="pub-drink"><%= pub.drink %></p>
+      <h5 class="pub-name" ><%= link_to pub.name, pub_path(pub.id), class:"card-pub-link" %></h5>
+      <div class="d-flex gap-3 mt-3"><i class="fa fa-map-pin " aria-hidden="true"></i><p class="pub-address ml-2"><%= pub.address %></p></div>
+<!--      <p class="pub-address"><%#= pub.address %></p>
+
+-->
+    <div class="d-flex gap-3 mt-3"><i class="fa fa-beer" aria-hidden="true"> </i><p class="pub-drink ml-2"><%=  pub.drink %></p></div>
+
+     <!--<p class="pub-drink"><%#= pub.drink %></p>-->
     </div>
   <% end %>
   <div class="d-grid gap-2">

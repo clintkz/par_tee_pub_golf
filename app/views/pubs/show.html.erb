@@ -1,9 +1,9 @@
 <div class="container-courses">
   <div class="card-pub" >
     <div class="card-pub-link">
-      <strong><%= @pub.name%> </strong></div>
+      <h5><strong><%= @pub.name%> </strong></h5></div>
     <%= image_tag @pub.image, width: 300, height: 200 %>
-    <br><div class="d-flex mt-3"><i class="fa fa-map-pin " aria-hidden="true"></i><p class="pub-address ml-2"><%= @pub.address %></p></div>
-    <div class="d-flex mt-3"><i class="fa fa-beer" aria-hidden="true"> </i><p class="pub-drink ml-2"><%=  @pub.drink %></p></div>
+    <br><div class="d-flex gap-3 mt-3"><i class="fa fa-map-pin " aria-hidden="true"></i><p class="pub-address ml-2"><%= @pub.address %></p></div>
+    <div class="d-flex gap-3 mt-3"><i class="fa fa-beer" aria-hidden="true"> </i><p class="pub-drink ml-2"><%=  @pub.drink %></p></div>
   </div>
 </div>
